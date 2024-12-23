@@ -1,0 +1,16 @@
+{
+  "name": "com.qiaozhilei.easy-text-effects",
+  "version": "1.0.0",
+  "displayName": "Easy Text Effects",
+  "description": "Add text effects and animations to TMP texts with one script.",
+  "unity": "2022.3",
+  "author": {
+    "name": "Qiaozhi Lei",
+    "email": "georgeleiqiaozhi@gmail.com",
+    "url": "qiaozhi.lei.carrd.co"
+  },
+  "keywords": ["text", "text effects", "TMP", "TextMesh Pro", "text animation", "unity", "package"],
+  "dependencies": {
+    "com.domybest.mybox": "https://github.com/Deadcows/MyBox.git"
+  }
+}
