@@ -19,16 +19,10 @@ namespace EasyTextEffects
         [FormerlySerializedAs("effectsList")] public List<GlobalTextEffectEntry> globalEffects;
         [Range(1, 120)] public int updatesPerSecond = 30;
 
-        public struct StyleInfo
-        {
-            public List<TextEffect_Persistent> effects;
-        }
-
         private List<TextEffectEntry> onStartTagEffects_;
         private List<TextEffectEntry> manualTagEffects_;
         private List<GlobalTextEffectEntry> onStartEffects_;
         private List<GlobalTextEffectEntry> manualEffects_;
-        private StyleInfo[] styleInfos_;
         private List<TextEffect_Trigger> entryEffectsCopied_;
 
         public void UpdateStyleInfos()
@@ -36,15 +30,8 @@ namespace EasyTextEffects
             if (text == null || text.textInfo == null)
                 return;
             TMP_TextInfo textInfo = text.textInfo;
-            styleInfos_ = new StyleInfo[textInfo.characterCount];
 
             var styles = textInfo.linkInfo;
-
-            // initialize effects list
-            for (var i = 0; i < styleInfos_.Length; i++)
-            {
-                styleInfos_[i].effects = new List<TextEffect_Persistent>();
-            }
 
             // copy global effects
             onStartEffects_ = new List<GlobalTextEffectEntry>();
@@ -256,6 +243,7 @@ namespace EasyTextEffects
             }
         }
 
+        #if UNITY_EDITOR
         private void OnDrawGizmosSelected()
         {
             if (text == null || text.textInfo == null)
@@ -284,5 +272,6 @@ namespace EasyTextEffects
                 // Gizmos.DrawWireCube((botLeft + topRight) / 2, topRight - botLeft);
             }
         }
+        #endif
     }
 }
