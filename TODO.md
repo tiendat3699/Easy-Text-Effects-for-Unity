@@ -6,11 +6,12 @@
 - [ ] Documentation
   - [ ] md files
   - [ ] inspector
+  - [ ] readme
 - [x] Composite
   - [x] custom editor
-- [ ] Clean Up
+- [x] Clean Up
   - [x] Remove persistent
-  - [ ] Organize effects in demo 
+  - [x] Organize effects in demo 
 
 ## COULD
 

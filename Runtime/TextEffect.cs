@@ -187,7 +187,7 @@ namespace EasyTextEffects
             }
         }
 
-        public void StartOnStartEffects()
+        private void StartOnStartEffects()
         {
             onStartEffects_.ForEach(_effect => _effect.effect.StartEffect());
             onStartTagEffects_.ForEach(_effect => _effect.effect.StartEffect());
