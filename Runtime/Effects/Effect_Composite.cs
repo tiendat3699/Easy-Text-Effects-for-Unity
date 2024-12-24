@@ -1,13 +1,11 @@
-using System;
 using System.Collections.Generic;
-using MyBox;
 using TMPro;
 using UnityEngine;
 
-namespace EasyTextEffects
+namespace EasyTextEffects.Effects
 {
-    [CreateAssetMenu(fileName = "Trigger_Composite", menuName = "Text Effect/Trigger/Composite")]
-    public class Trigger_Composite : TextEffect_Trigger
+    [CreateAssetMenu(fileName = "Effect_Composite", menuName = "Easy Text Effects/Composite")]
+    public class Effect_Composite : TextEffect_Trigger
     {
         public List<TextEffect_Trigger> effects = new List<TextEffect_Trigger>();
 
@@ -54,7 +52,7 @@ namespace EasyTextEffects
 
         public override TextEffect_Trigger Instantiate()
         {
-            Trigger_Composite instance = Instantiate(this);
+            Effect_Composite instance = Instantiate(this);
             instance.effects = new List<TextEffect_Trigger>();
             foreach (TextEffect_Trigger effect in effects)
             {

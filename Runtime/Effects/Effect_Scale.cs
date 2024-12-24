@@ -1,14 +1,13 @@
-using MyBox;
 using TMPro;
 using UnityEngine;
 
-namespace EasyTextEffects
+namespace EasyTextEffects.Effects
 {
-    [CreateAssetMenu(fileName = "Trigger_Rotate", menuName = "Text Effect/Trigger/Rotate")]
-    public class Trigger_Rotate : TextEffect_Trigger
+    [CreateAssetMenu(fileName = "Effect_Scale", menuName = "Easy Text Effects/Scale")]
+    public class Effect_Scale : TextEffect_Trigger
     {
-        [Range(-360, 360)] public float startAngle = 90;
-        [Range(-360, 360)] public float endAngle = 0;
+        public float startScale = 0;
+        public float endScale = 1;
 
         public override void ApplyEffect(TMP_TextInfo _textInfo, int _charIndex)
         {
@@ -17,15 +16,15 @@ namespace EasyTextEffects
             TMP_CharacterInfo charInfo = _textInfo.characterInfo[_charIndex];
             var materialIndex = charInfo.materialReferenceIndex;
             var verts = _textInfo.meshInfo[materialIndex].vertices;
-
-            var angle = Interpolate(startAngle, endAngle, _charIndex);
             Vector3 center = CharCenter(charInfo, verts);
-            
+
+            var scale = Interpolate(startScale, endScale, _charIndex);
+
             for (var v = 0; v < 4; v++)
             {
                 var vertexIndex = charInfo.vertexIndex + v;
                 Vector3 fromCenter = verts[vertexIndex] - center;
-                verts[vertexIndex] = center + Quaternion.Euler(0, 0, angle) * fromCenter;
+                verts[vertexIndex] = center + fromCenter * scale;
             }
         }
     }

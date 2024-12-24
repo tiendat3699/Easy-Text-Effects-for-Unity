@@ -1,11 +1,10 @@
-using MyBox;
 using TMPro;
 using UnityEngine;
 
-namespace EasyTextEffects
+namespace EasyTextEffects.Effects
 {
-    [CreateAssetMenu(fileName = "Trigger_Move", menuName = "Text Effect/Trigger/Move")]
-    public class Trigger_Move : TextEffect_Trigger
+    [CreateAssetMenu(fileName = "Effect_Move", menuName = "Easy Text Effects/Move")]
+    public class Effect_Move : TextEffect_Trigger
     {
         public Vector2 startOffset = -Vector2.up;
         public Vector2 endOffset;

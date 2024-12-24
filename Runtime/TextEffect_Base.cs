@@ -18,11 +18,6 @@ namespace EasyTextEffects
             var charBegin = _charInfo.vertexIndex;
             var charEnd = charBegin + 2;
             Vector3 center = (_verts[charBegin] + _verts[charEnd]) / 2;
-            //
-            // if (_charInfo.vertexIndex == 0)
-            // {
-            //     Debug.Log($"{center}");
-            // }
             return center;
         }
     }

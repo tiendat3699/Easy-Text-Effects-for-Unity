@@ -2,7 +2,7 @@ using MyBox;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace EasyTextEffects
+namespace EasyTextEffects.Effects
 {
     public abstract class TextEffect_Trigger : TextEffect_Base
     {

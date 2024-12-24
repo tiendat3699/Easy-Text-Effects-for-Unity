@@ -2,10 +2,10 @@ using MyBox;
 using TMPro;
 using UnityEngine;
 
-namespace EasyTextEffects
+namespace EasyTextEffects.Effects
 {
-    [CreateAssetMenu(fileName = "Trigger_Color", menuName = "Text Effect/Trigger/Color")]
-    public class Trigger_Color : TextEffect_Trigger
+    [CreateAssetMenu(fileName = "Effect_Color", menuName = "Easy Text Effects/Color")]
+    public class Effect_Color : TextEffect_Trigger
     {
         public enum ColorType
         {

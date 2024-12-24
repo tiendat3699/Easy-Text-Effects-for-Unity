@@ -1,3 +1,5 @@
+using EasyTextEffects.Effects;
+
 namespace EasyTextEffects
 {
     [System.Serializable]

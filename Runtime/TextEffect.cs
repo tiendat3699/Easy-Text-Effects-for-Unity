@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using EasyTextEffects.Effects;
 using MyBox;
 using TMPro;
 #if UNITY_EDITOR
@@ -14,7 +15,6 @@ namespace EasyTextEffects
     public class TextEffect : MonoBehaviour
     {
         public TMP_Text text;
-        public TextEffectsPreset effectsPreset;
         public List<TextEffectEntry> tagEffects;
         [FormerlySerializedAs("effectsList")] public List<GlobalTextEffectEntry> globalEffects;
         [Range(1, 120)] public int updatesPerSecond = 30;
