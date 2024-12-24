@@ -4,7 +4,7 @@ using MyBox;
 using TMPro;
 using UnityEngine;
 
-namespace Text_Effect
+namespace EasyTextEffects
 {
     [CreateAssetMenu(fileName = "Trigger_Composite", menuName = "Text Effect/Trigger/Composite")]
     public class Trigger_Composite : TextEffect_Trigger

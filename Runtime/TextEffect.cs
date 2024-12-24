@@ -1,14 +1,14 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using MyBox;
 using TMPro;
-using Unity.VisualScripting;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace Text_Effect
+namespace EasyTextEffects
 {
     [ExecuteAlways]
     public class TextEffect : MonoBehaviour
@@ -75,7 +75,7 @@ namespace Text_Effect
 
                 // copy effects
                 var effectTemplates = GetTagEffectsByName(style.GetLinkID());
-                Debug.Log($"style {i} -- {style.GetLinkID()} -- {effectTemplates.Count} effects");
+                // Debug.Log($"style {i} -- {style.GetLinkID()} -- {effectTemplates.Count} effects");
                 foreach (TextEffectEntry entry in effectTemplates)
                 {
                     if (entry.effect == null)
@@ -131,6 +131,8 @@ namespace Text_Effect
 #if UNITY_EDITOR
             EditorApplication.update += Update;
 #endif
+            if (text == null)
+                return;
             text.ForceMeshUpdate();
             UpdateStyleInfos();
         }

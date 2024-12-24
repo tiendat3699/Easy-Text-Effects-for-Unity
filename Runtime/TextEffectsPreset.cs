@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Text_Effect
+namespace EasyTextEffects
 {
     [CreateAssetMenu(fileName = "TextEffectsPreset", menuName = "Text Effect/Text Effects Preset")]
     public class TextEffectsPreset : ScriptableObject

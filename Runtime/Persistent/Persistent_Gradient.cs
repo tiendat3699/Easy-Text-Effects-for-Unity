@@ -2,7 +2,7 @@ using MyBox;
 using TMPro;
 using UnityEngine;
 
-namespace Text_Effect
+namespace EasyTextEffects
 {
     [CreateAssetMenu(fileName = "Persistent_Gradient", menuName = "Text Effect/Persistent/Gradient")]
     public class Persistent_Gradient : TextEffect_Persistent

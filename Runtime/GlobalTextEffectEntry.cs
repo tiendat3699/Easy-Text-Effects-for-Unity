@@ -1,4 +1,4 @@
-namespace Text_Effect
+namespace EasyTextEffects
 {
     [System.Serializable]
     public class TextEffectEntry

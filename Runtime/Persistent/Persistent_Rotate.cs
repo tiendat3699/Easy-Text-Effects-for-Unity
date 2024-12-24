@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
-namespace Text_Effect
+namespace EasyTextEffects
 {
     [CreateAssetMenu(fileName = "Persistent_Rotate", menuName = "Text Effect/Persistent/Rotate")]
     public class Persistent_Rotate : TextEffect_Persistent

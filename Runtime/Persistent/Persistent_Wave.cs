@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace Text_Effect
+namespace EasyTextEffects
 {
     [CreateAssetMenu(fileName = "Persistent_Wave", menuName = "Text Effect/Persistent/Wave")]
     public class Persistent_Wave : TextEffect_Persistent

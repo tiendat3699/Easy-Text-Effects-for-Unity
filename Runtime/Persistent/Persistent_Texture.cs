@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace Text_Effect
+namespace EasyTextEffects
 {
     [CreateAssetMenu(fileName = "Persistent_Texture", menuName = "Text Effect/Persistent/Texture")]
     public class Persistent_Texture : TextEffect_Persistent

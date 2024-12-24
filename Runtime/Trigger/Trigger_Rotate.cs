@@ -2,7 +2,7 @@ using MyBox;
 using TMPro;
 using UnityEngine;
 
-namespace Text_Effect
+namespace EasyTextEffects
 {
     [CreateAssetMenu(fileName = "Trigger_Rotate", menuName = "Text Effect/Trigger/Rotate")]
     public class Trigger_Rotate : TextEffect_Trigger

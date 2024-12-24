@@ -9,8 +9,28 @@
     "email": "georgeleiqiaozhi@gmail.com",
     "url": "qiaozhi.lei.carrd.co"
   },
-  "keywords": ["text", "text effects", "TMP", "TextMesh Pro", "text animation", "unity", "package"],
+  "keywords": [
+    "text",
+    "text effects",
+    "TMP",
+    "TextMesh Pro",
+    "text animation",
+    "unity",
+    "package"
+  ],
   "dependencies": {
     "com.domybest.mybox": "https://github.com/Deadcows/MyBox.git"
-  }
+  },
+  "samples": [
+    {
+      "displayName": "Demo Scene and Effects",
+      "description": "...",
+      "path": "Samples~/Demo"
+    },
+    {
+      "displayName": "Demo Effects",
+      "description": "...",
+      "path": "Samples~/Demo/Effects"
+    }
+  ]
 }

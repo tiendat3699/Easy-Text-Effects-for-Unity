@@ -1,4 +1,4 @@
-using Text_Effect;
+using EasyTextEffects;
 using UnityEngine;
 using UnityEditor;
 

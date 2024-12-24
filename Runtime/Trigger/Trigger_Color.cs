@@ -2,7 +2,7 @@ using MyBox;
 using TMPro;
 using UnityEngine;
 
-namespace Text_Effect
+namespace EasyTextEffects
 {
     [CreateAssetMenu(fileName = "Trigger_Color", menuName = "Text Effect/Trigger/Color")]
     public class Trigger_Color : TextEffect_Trigger

@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace Text_Effect
+namespace EasyTextEffects
 {
     public abstract class TextEffect_Persistent : TextEffect_Base
     {

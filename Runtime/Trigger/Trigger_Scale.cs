@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace Text_Effect
+namespace EasyTextEffects
 {
     [CreateAssetMenu(fileName = "Trigger_Scale", menuName = "Text Effect/Trigger/Scale")]
     public class Trigger_Scale : TextEffect_Trigger
