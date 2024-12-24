@@ -14,6 +14,12 @@ https://github.com/LeiQiaoZhi/Easy-Text-Effect.git
 
 > If you are new to this package, I highly recommend you to import the samples in the "**Samples**" tab in the [details panel](https://docs.unity3d.com/6000.0/Documentation/Manual/upm-ui-details.html) of this package in the package manager. There is a demo scene and some ready-to-use effects.
 
+### Dependencies
+
+This package only works with **TextMeshPro**. 
+
+**MyBox** is used for some inspector utilities. It should automatically be installed when you install this package. If not, you can install it from [github url](https://github.com/Deadcows/MyBox.git).
+
 ## Getting Started
 
 Animate your text with 3 simple steps:
@@ -27,16 +33,13 @@ Animate your text with 3 simple steps:
 
 See the [Effects](#effects) page for more information on the available effects.
 
-There are 2 effect lists:
-
-- `Tag Effects`: Effects that are applied to the text based on rich text tags.
-- `Global Effects`: Effects that are applied to every character in the text.
-
 <img src="component.png" width="50%">
 
 ## Effects
 
-There are 4 types of effects: `Color`, `Move`, `Rotate`, and `Scale`. What properties they change are self-explanatory.
+There are 5 types of effects: `Color`, `Move`, `Rotate`, `Scale` and `Composite`.
+
+> Note that TMP already has built-in effects like textures, outlines, fake 3D, drop shadows, etc. 
 
 ### Common Properties
 
@@ -70,11 +73,31 @@ Animations' timing are different for each character:
 
 ### Color
 
+The `Color` effect allows you to animate the color of the text. You can choose between different color types:
+- `Gradient`: Applies a gradient to the text.
+- `BetweenTwoColors`: Animates between two colors.
+- `OnlyAlpha`: Animates only the alpha (transparency) of the text.
+- `ColorToOriginal`: Animates from a color to the original color of the text.
+
+When using `Gradient`, you can set orientation (Horizontal, HorizontalPerCharacter, Vertical).
+
+Example:
+
 ### Move
+
+Example: wavy text
 
 ### Rotate
 
 ### Scale
+
+### Composite
+
+Only have `EffectName` and a list of effects. This is useful for combining multiple effects into one.
+
+This is for organizational purposes only, and does not have any properties of its own. It is the same as adding multiple effects to the same list.
+
+This can be useful if there is a common set of effects that you want to apply to multiple texts. For example, you can create a composite entry animation that contains a fade in and a move up effect, and apply it to multiple texts.
 
 ### Creating Effects
 
@@ -89,6 +112,12 @@ There are 2 effect lists:
 
 Global effects are very easy to apply, just add an element to the list and drag the effect to the `Effect` field.
 
+Tag effects are applied by adding a rich text tag to the text. The format is `<link=effectName>text</link>`. The `effectName` should match the `Effect Name` of the effect.
+
+> Using `link` is a workaround to make the tag work without writing a custom tag parser. 
+
+> Note that there are already some built-in tags in TextMeshPro, like `<color=#ff0000>red</color>`, `<size=20>big</size>`, etc.
+
 ### Controlling Effects
 
 Every element of an effect list has a `Trigger When` field, which determines when the effect is triggered. 
@@ -102,3 +131,29 @@ Every element of an effect list has a `Trigger When` field, which determines whe
 There are some debug buttons to help you test manual effects in the editor:
 
 <img src="debug.png" width="50%" alt="">
+
+### Creating Your Own Effects
+
+The easiest way to create your own effects is to create a new class that inherits from `TextEffect_Trigger` and override the `ApplyEffect` method.
+
+Example:
+
+```csharp
+using EasyTextEffects.Effects;
+using TMPro;
+
+[CreateAssetMenu(menuName = "Easy Text Effects/Customized Effect")]
+public class CustomizedEffect : TextEffect_Trigger
+{
+    public override void ApplyEffect(TMP_TextInfo _textInfo, int _charIndex)
+    {
+        // Your code here   
+    }
+}
+```
+
+Look at the existing effects in `Packages/EasyTextEffects/Runtime/Effects` for more examples.
+
+Limitations:
+- You can only change the vertices and colors of the text. 
+- Inherited properties will show up in the inspector, even if you don't use them. You need to write your own editor script to hide them, see `Packages/EasyTextEffects/Editor/CompositeEffectEditor.cs` for an example.

@@ -3,6 +3,7 @@
 ## MUST
 - [ ] Demo Scene
   - [ ] add github link
+- [ ] Ready to use effects
 - [ ] Documentation
   - [ ] md files
   - [ ] inspector
