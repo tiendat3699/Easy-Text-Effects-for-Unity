@@ -4,6 +4,7 @@
 - [ ] Demo Scene
   - [ ] add github link
 - [ ] Ready to use effects
+- [ ] Rotate center offset
 - [ ] Documentation
   - [ ] md files
   - [ ] inspector
@@ -16,4 +17,4 @@
 
 ## COULD
 
-- [ ] Per vertex effects
+- [ ] Per vertex settings

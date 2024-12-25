@@ -162,17 +162,17 @@ namespace EasyTextEffects
 
                 var capturedI = i;
                 onStartEffects_.Where(_entry => !_entry.overrideTagEffects)
-                    .ForEach(_entry => _entry.effect.ApplyEffect(textInfo, capturedI));
+                    .ForEach(_entry => _entry.effect.ApplyEffect(textInfo, capturedI, 0, 3));
                 manualEffects_.Where(_entry => !_entry.overrideTagEffects).ForEach(_entry =>
-                    _entry.effect.ApplyEffect(textInfo, capturedI));
+                    _entry.effect.ApplyEffect(textInfo, capturedI, 0, 3));
 
-                onStartTagEffects_.ForEach(_entry => _entry.effect.ApplyEffect(textInfo, capturedI));
-                manualTagEffects_.ForEach(_entry => _entry.effect.ApplyEffect(textInfo, capturedI));
+                onStartTagEffects_.ForEach(_entry => _entry.effect.ApplyEffect(textInfo, capturedI, 0, 3));
+                manualTagEffects_.ForEach(_entry => _entry.effect.ApplyEffect(textInfo, capturedI, 0, 3));
 
                 onStartEffects_.Where(_entry => _entry.overrideTagEffects).ForEach(_entry =>
-                    _entry.effect.ApplyEffect(textInfo, capturedI));
+                    _entry.effect.ApplyEffect(textInfo, capturedI, 0, 3));
                 manualEffects_.Where(_entry => _entry.overrideTagEffects).ForEach(_entry =>
-                    _entry.effect.ApplyEffect(textInfo, capturedI));
+                    _entry.effect.ApplyEffect(textInfo, capturedI, 0, 3));
             }
 
             // apply changes and update mesh

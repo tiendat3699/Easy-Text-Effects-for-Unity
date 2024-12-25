@@ -3,13 +3,13 @@ using UnityEngine;
 
 namespace EasyTextEffects.Effects
 {
-    [CreateAssetMenu(fileName = "Effect_Scale", menuName = "Easy Text Effects/Scale")]
+    [CreateAssetMenu(fileName = "Scale", menuName = "Easy Text Effects/Scale")]
     public class Effect_Scale : TextEffect_Trigger
     {
         public float startScale = 0;
         public float endScale = 1;
 
-        public override void ApplyEffect(TMP_TextInfo _textInfo, int _charIndex)
+        public override void ApplyEffect(TMP_TextInfo _textInfo, int _charIndex, int _startVertex = 0, int _endVertex = 3)
         {
             if (!CheckCanApplyEffect(_charIndex)) return;
 
@@ -20,7 +20,7 @@ namespace EasyTextEffects.Effects
 
             var scale = Interpolate(startScale, endScale, _charIndex);
 
-            for (var v = 0; v < 4; v++)
+            for (var v = _startVertex; v <= _endVertex; v++)
             {
                 var vertexIndex = charInfo.vertexIndex + v;
                 Vector3 fromCenter = verts[vertexIndex] - center;

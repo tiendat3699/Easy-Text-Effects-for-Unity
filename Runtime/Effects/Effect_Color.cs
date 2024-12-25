@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace EasyTextEffects.Effects
 {
-    [CreateAssetMenu(fileName = "Effect_Color", menuName = "Easy Text Effects/Color")]
+    [CreateAssetMenu(fileName = "Color", menuName = "Easy Text Effects/Color")]
     public class Effect_Color : TextEffect_Trigger
     {
         public enum ColorType
@@ -48,14 +48,14 @@ namespace EasyTextEffects.Effects
         [ConditionalField(nameof(colorType), false, ColorType.OnlyAlpha)] [Range(0, 1)]
         public float endAlpha = 1;
 
-        public override void ApplyEffect(TMP_TextInfo _textInfo, int _charIndex)
+        public override void ApplyEffect(TMP_TextInfo _textInfo, int _charIndex, int _startVertex = 0, int _endVertex = 3)
         {
             if (!CheckCanApplyEffect(_charIndex)) return;
 
             TMP_CharacterInfo charInfo = _textInfo.characterInfo[_charIndex];
             var materialIndex = charInfo.materialReferenceIndex;
 
-            for (var v = 0; v < 4; v++)
+            for (var v = _startVertex; v <= _endVertex; v++)
             {
                 var vertexIndex = charInfo.vertexIndex + v;
                 Color color = _textInfo.meshInfo[materialIndex].colors32[vertexIndex];

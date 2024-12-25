@@ -10,7 +10,7 @@ namespace EasyTextEffects
         [HideInInspector] public int startCharIndex;
         [HideInInspector] public int charLength;
 
-        public abstract void ApplyEffect(TMP_TextInfo _textInfo, int _charIndex);
+        public abstract void ApplyEffect(TMP_TextInfo _textInfo, int _charIndex, int _startVertex = 0, int _endVertex = 3);
 
         protected Vector3 CharCenter(TMP_CharacterInfo _charInfo, Vector3[] _verts)
         {

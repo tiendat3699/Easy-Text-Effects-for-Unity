@@ -1,6 +1,5 @@
 using EasyTextEffects.Effects;
 using UnityEditor;
-using UnityEngine;
 
 namespace EasyTextEffects.Editor
 {

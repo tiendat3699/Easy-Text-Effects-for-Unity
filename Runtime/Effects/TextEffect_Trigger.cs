@@ -29,6 +29,9 @@ namespace EasyTextEffects.Effects
 
         [FormerlySerializedAs("curve")] public AnimationCurve easingCurve = AnimationCurve.Linear(0, 0, 1, 1);
 
+        [Space(10)]
+        public bool differentForFourVertices;
+
         protected float startTime;
         protected bool started;
 

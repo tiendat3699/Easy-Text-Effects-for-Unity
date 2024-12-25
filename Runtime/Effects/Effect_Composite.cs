@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace EasyTextEffects.Effects
 {
-    [CreateAssetMenu(fileName = "Effect_Composite", menuName = "Easy Text Effects/Composite")]
+    [CreateAssetMenu(fileName = "Composite", menuName = "Easy Text Effects/Composite")]
     public class Effect_Composite : TextEffect_Trigger
     {
         public List<TextEffect_Trigger> effects = new List<TextEffect_Trigger>();
@@ -18,13 +18,13 @@ namespace EasyTextEffects.Effects
             }
         }
 
-        public override void ApplyEffect(TMP_TextInfo _textInfo, int _charIndex)
+        public override void ApplyEffect(TMP_TextInfo _textInfo, int _charIndex, int _startVertex = 0, int _endVertex = 3)
         {
             if (!CheckCanApplyEffect(_charIndex)) return;
             
             foreach (TextEffect_Trigger effect in effects)
             {
-                effect.ApplyEffect(_textInfo, _charIndex);
+                effect.ApplyEffect(_textInfo, _charIndex, _startVertex, _endVertex);
             }
         }
 
