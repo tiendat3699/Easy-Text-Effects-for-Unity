@@ -330,8 +330,8 @@ MonoBehaviour:
     <size=200px><b><link=free+scale+sw>Free</link></b>
     Package</size>'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 284acdb4a059648af981c1c4da7f5127, type: 2}
-  m_sharedMaterial: {fileID: 512261687}
+  m_fontAsset: {fileID: 11400000, guid: 0888e525036834b44bb1cf19f160d1ec, type: 2}
+  m_sharedMaterial: {fileID: 5385277421075690621, guid: 0888e525036834b44bb1cf19f160d1ec, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 512261687}
   m_fontMaterials: []
@@ -410,7 +410,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 4837800}
-  effectsPreset: {fileID: 11400000, guid: 69f9069ee89d045f0aa653ddd92ee21a, type: 2}
   tagEffects: []
   globalEffects: []
   updatesPerSecond: 30
@@ -701,7 +700,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 87891941}
-  effectsPreset: {fileID: 11400000, guid: 69f9069ee89d045f0aa653ddd92ee21a, type: 2}
   tagEffects:
   - triggerWhen: 0
     effect: {fileID: 11400000, guid: 264df88e1e0804dd9991262a82551ef2, type: 2}
@@ -1017,7 +1015,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 128925376}
-  effectsPreset: {fileID: 11400000, guid: 69f9069ee89d045f0aa653ddd92ee21a, type: 2}
   tagEffects:
   - triggerWhen: 0
     effect: {fileID: 11400000, guid: 9757bb08ff81e4356b07cf5f7a34b164, type: 2}
@@ -1200,7 +1197,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 225214428}
-  effectsPreset: {fileID: 11400000, guid: 69f9069ee89d045f0aa653ddd92ee21a, type: 2}
   tagEffects:
   - triggerWhen: 0
     effect: {fileID: 11400000, guid: 71decc3125aa041fa8a52159bdc76e95, type: 2}
@@ -1392,6 +1388,72 @@ MonoBehaviour:
   - {fileID: 1314442375}
   - {fileID: 916552215}
   - {fileID: 1841878957}
+--- !u!21 &467008256
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: LiberationSans SDF Material (Instance)
+  m_Shader: {fileID: 4800000, guid: fe393ace9b354375a9cb14cdbbc28be4, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 1
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 28684132378477856, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _CullMode: 0
+    - _FaceDilate: 0
+    - _GradientScale: 10
+    - _MaskSoftnessX: 0
+    - _MaskSoftnessY: 0
+    - _OutlineSoftness: 0
+    - _OutlineWidth: 0
+    - _PerspectiveFilter: 0.875
+    - _ScaleRatioA: 0.9
+    - _ScaleRatioB: 1
+    - _ScaleRatioC: 0.73125
+    - _ScaleX: 1
+    - _ScaleY: 1
+    - _ShaderFlags: 0
+    - _Sharpness: 0
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _TextureHeight: 1024
+    - _TextureWidth: 1024
+    - _UnderlayDilate: 0
+    - _UnderlayOffsetX: 0
+    - _UnderlayOffsetY: 0
+    - _UnderlaySoftness: 0
+    - _VertexOffsetX: 0
+    - _VertexOffsetY: 0
+    - _WeightBold: 0.75
+    - _WeightNormal: 0
+    m_Colors:
+    - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
+    - _FaceColor: {r: 1, g: 1, b: 1, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _UnderlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_BuildTextureStacks: []
 --- !u!21 &512261687
 Material:
   serializedVersion: 8
@@ -1640,7 +1702,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 517141750}
-  effectsPreset: {fileID: 11400000, guid: 69f9069ee89d045f0aa653ddd92ee21a, type: 2}
   tagEffects: []
   globalEffects:
   - triggerWhen: 0
@@ -2060,7 +2121,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 718775500}
-  effectsPreset: {fileID: 11400000, guid: 69f9069ee89d045f0aa653ddd92ee21a, type: 2}
   tagEffects: []
   globalEffects: []
   updatesPerSecond: 30
@@ -2239,7 +2299,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 888824243}
-  effectsPreset: {fileID: 11400000, guid: 69f9069ee89d045f0aa653ddd92ee21a, type: 2}
   tagEffects: []
   globalEffects: []
   updatesPerSecond: 30
@@ -2875,7 +2934,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1009286459}
-  effectsPreset: {fileID: 11400000, guid: 69f9069ee89d045f0aa653ddd92ee21a, type: 2}
   tagEffects: []
   globalEffects: []
   updatesPerSecond: 30
@@ -2950,10 +3008,10 @@ MonoBehaviour:
     <size=200px><b><link=free+scale+sw>Free</link></b>
     Package</size>'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cce25f0265efe45f4ad18a86bdbadf82, type: 2}
-  m_sharedMaterial: {fileID: 1115797890}
+  m_fontAsset: {fileID: 11400000, guid: 388605f3d48e344f28e1700cceeb1a48, type: 2}
+  m_sharedMaterial: {fileID: -5484475325105853923, guid: 388605f3d48e344f28e1700cceeb1a48, type: 2}
   m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 1115797890}
+  m_fontMaterial: {fileID: 467008256}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
@@ -3038,7 +3096,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1013552554}
-  effectsPreset: {fileID: 11400000, guid: 69f9069ee89d045f0aa653ddd92ee21a, type: 2}
   tagEffects:
   - triggerWhen: 0
     effect: {fileID: 11400000, guid: f1d7e1af81da94fdc810295e1197369a, type: 2}
@@ -3835,7 +3892,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1272872867}
-  effectsPreset: {fileID: 11400000, guid: 69f9069ee89d045f0aa653ddd92ee21a, type: 2}
   tagEffects: []
   globalEffects: []
   updatesPerSecond: 30
@@ -4127,7 +4183,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1290895651}
-  effectsPreset: {fileID: 11400000, guid: 69f9069ee89d045f0aa653ddd92ee21a, type: 2}
   tagEffects:
   - triggerWhen: 0
     effect: {fileID: 11400000, guid: 71decc3125aa041fa8a52159bdc76e95, type: 2}
@@ -4453,7 +4508,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1429259321}
-  effectsPreset: {fileID: 11400000, guid: 69f9069ee89d045f0aa653ddd92ee21a, type: 2}
   tagEffects: []
   globalEffects: []
   updatesPerSecond: 30
@@ -4605,7 +4659,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1511644473}
-  effectsPreset: {fileID: 11400000, guid: 69f9069ee89d045f0aa653ddd92ee21a, type: 2}
   tagEffects: []
   globalEffects:
   - triggerWhen: 0
@@ -5097,7 +5150,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1828289607}
-  effectsPreset: {fileID: 11400000, guid: 69f9069ee89d045f0aa653ddd92ee21a, type: 2}
   tagEffects: []
   globalEffects: []
   updatesPerSecond: 30
@@ -5657,7 +5709,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1865120511}
-  effectsPreset: {fileID: 11400000, guid: 69f9069ee89d045f0aa653ddd92ee21a, type: 2}
   tagEffects:
   - triggerWhen: 0
     effect: {fileID: 11400000, guid: f1d7e1af81da94fdc810295e1197369a, type: 2}
@@ -5841,7 +5892,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1915143486}
-  effectsPreset: {fileID: 11400000, guid: 69f9069ee89d045f0aa653ddd92ee21a, type: 2}
   tagEffects: []
   globalEffects:
   - triggerWhen: 0
@@ -6128,7 +6178,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1984374813}
-  effectsPreset: {fileID: 11400000, guid: 69f9069ee89d045f0aa653ddd92ee21a, type: 2}
   tagEffects: []
   globalEffects: []
   updatesPerSecond: 30
@@ -6280,7 +6329,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1999164930}
-  effectsPreset: {fileID: 11400000, guid: 69f9069ee89d045f0aa653ddd92ee21a, type: 2}
   tagEffects: []
   globalEffects:
   - triggerWhen: 0
@@ -6442,7 +6490,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 2030430951}
-  effectsPreset: {fileID: 11400000, guid: 69f9069ee89d045f0aa653ddd92ee21a, type: 2}
   tagEffects:
   - triggerWhen: 0
     effect: {fileID: 11400000, guid: af8f95a57659a4948a6ab61607eaef6a, type: 2}
