@@ -19,6 +19,6 @@ Per Vertex
 
 ## Easy to Learn
 
-Clear documentation
+[**Clear Documentation**](Documentation/Documentation.md)
 
 Examples

@@ -33,7 +33,7 @@ Animate your text with 3 simple steps:
 
 See the [Effects](#effects) page for more information on the available effects.
 
-<img src="component.png" width="50%">
+<img src="Images/component.png" width="50%">
 
 ## Effects
 
@@ -51,24 +51,24 @@ Animations' timing are different for each character:
 - `Duration Per Char`: The duration of one cycle of the effect for each character.
 - `Time Between Chars`: The time between the start of each character's effect. You can set it to 0 to make the effect text-wise.
 
-<img src="time.png" width="50%" alt="">
+<img src="Images/time.png" width="50%" alt="">
 
 `No Delay For Later Chars`: If enabled, the effect will start immediately for all characters, instead of waiting for the previous character to finish.
 
-<img src="nodelay.png" width="50%" alt="">
+<img src="Images/nodelay.png" width="50%" alt="">
 
 `Reverse Char Order`: If enabled, the effect will start from the last character instead of the first. This is useful for exit animations.
 
-<img src="reverse.png" width="50%" alt="">
+<img src="Images/reverse.png" width="50%" alt="">
 
 `Animation Type`: determines how the effect acts when time exceeds the duration of the effect.
 - `One Time`: The effect will **stop** when the time exceeds the duration. All other types will loop (in different ways).  
 - `Ping Pong`: The effect will **reverse** when the time exceeds the duration. This makes the effect go back and forth smoothly.
 - `Loop`: The effect will **restart** when the time exceeds the duration. If start and end values are not the same, the effect will have an abrupt jump.
 
-<img src="notonetime.png" width="50%" alt="">
+<img src="Images/notonetime.png" width="50%" alt="">
 
-<img src="clamp.png" width="50%" alt="">
+<img src="Images/clamp.png" width="50%" alt="">
 
 
 ### Color
@@ -132,7 +132,7 @@ Every element of an effect list has a `Trigger When` field, which determines whe
 
 There are some debug buttons to help you test manual effects in the editor:
 
-<img src="debug.png" width="50%" alt="">
+<img src="Images/debug.png" width="50%" alt="">
 
 ### Creating Your Own Effects
 
