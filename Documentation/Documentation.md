@@ -37,7 +37,7 @@ See the [Effects](#effects) page for more information on the available effects.
 
 ## Effects
 
-There are 5 types of effects: `Color`, `Move`, `Rotate`, `Scale` and `Composite`.
+There are 6 types of effects: `Color`, `Move`, `Rotate`, `Scale`, `Composite`, and `Per Vertex`.
 
 > Note that TMP already has built-in effects like textures, outlines, fake 3D, drop shadows, etc. 
 
@@ -90,6 +90,8 @@ Example: wavy text
 ### Rotate
 
 ### Scale
+
+### Per Vertex
 
 ### Composite
 
