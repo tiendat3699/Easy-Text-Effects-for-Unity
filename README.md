@@ -3,6 +3,8 @@
     Easy Text Effects for Unity
 </h1>
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](LICENSE) 
+
 > **Easily animate TextMeshPro text with stunning, customizable effects!**
 
 **Easy Text Effects** is a free and open-source Unity package that brings life to your text. Whether you're working on games, UI, or interactive experiences, this package provides an intuitive and flexible way to create captivating text animations.
