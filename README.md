@@ -1,5 +1,5 @@
 <h1>
-    <img src="Editor/Icons/TextEffect.png" alt="Icon" width="32" style="vertical-align: middle;"> 
+    <img src="Editor/Icons/TextEffect.png" alt="Icon" width="30" style="vertical-align: middle;"> 
     Easy Text Effects for Unity
 </h1>
 
@@ -33,7 +33,6 @@ For detailed steps, visit the [Quick Start Guide](Documentation/Documentation.md
 
 - [**Comprehensive Documentation**](Documentation/Documentation.md)
 - [Samples](Documentation/Samples.md)
-- [Installation Instructions](Documentation/Documentation.md#installation)
 
 ## 🛠️ Customization
 
