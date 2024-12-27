@@ -43,6 +43,10 @@ Unleash your creativity with:
 - [**Per-Vertex Effects**](Documentation/Documentation.md#per-vertex): Animate individual letters for dynamic text effects.
 - **Combine Effects**: Create complex animations with composite effects.
 
+## 🤝 Contributing
+
+Found a bug or have a feature request? Open an issue or submit a pull request! Contributions are welcome.
+
 ## 📃 License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
