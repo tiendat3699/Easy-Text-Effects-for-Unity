@@ -19,8 +19,6 @@
 
 <img src="Documentation/Images/ready.gif" alt="Text Effect" width="400">
 
----
-
 ## 🚀 Quick Start
 
 1. [**Install the package**](Documentation/Documentation.md#installation).
@@ -31,16 +29,11 @@
 
 For detailed steps, visit the [Quick Start Guide](Documentation/Documentation.md#quick-start).
 
----
-
 ## 📚 Learn More
 
 - [**Comprehensive Documentation**](Documentation/Documentation.md)
 - [Samples](Documentation/Samples.md)
 - [Installation Instructions](Documentation/Documentation.md#installation)
-
----
-
 
 ## 🛠️ Customization
 
@@ -50,8 +43,6 @@ Unleash your creativity with:
 - [**Per-Vertex Effects**](Documentation/Documentation.md#per-vertex): Animate individual letters for dynamic text effects.
 - **Combine Effects**: Create complex animations with composite effects.
 
----
-
 ## 📃 License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE.md) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
