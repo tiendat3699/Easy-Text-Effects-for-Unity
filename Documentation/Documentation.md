@@ -1,5 +1,11 @@
 # Documentation
 
+Table of Contents
+1. [Installation](#installation)
+2. [Quick Start](#quick-start)
+3. [Effects](#effects)
+4. [Samples](Samples.md)
+
 ## Installation
 
 Easiest way is to [install Easy Text Effects as a package](https://docs.unity3d.com/Manual/upm-ui-giturl.html).
@@ -12,7 +18,7 @@ Easiest way is to [install Easy Text Effects as a package](https://docs.unity3d.
 https://github.com/LeiQiaoZhi/Easy-Text-Effect.git
 ```
 
-> If you are new to this package, I highly recommend you to import the samples in the "**Samples**" tab in the [details panel](https://docs.unity3d.com/6000.0/Documentation/Manual/upm-ui-details.html) of this package in the package manager. There is a demo scene and some ready-to-use effects.
+> If you are new to this package, I highly recommend you to import the samples in the "**Samples**" tab in the details panel of this package in the package manager. There is a demo scene and some ready-to-use effects. See [Samples](#samples) for more information.
 
 ### Dependencies
 
@@ -20,7 +26,7 @@ This package only works with **TextMeshPro**.
 
 **MyBox** is used for some inspector utilities. It should automatically be installed when you install this package. If not, you can install it from [github url](https://github.com/Deadcows/MyBox.git).
 
-## Getting Started
+## Quick Start
 
 Animate your text with 3 simple steps:
 
@@ -29,7 +35,7 @@ Animate your text with 3 simple steps:
    `Create/Easy Text Effect/[Text Effect Type]`.
 3. Add an element to an effect list, then drag the effect to the `Effect` field.
 
->You should see your effects right away in the editor! (_If not, press the **Refresh** button, or **Play** the scene._)
+> You should see your effects right away in the editor! (_If not, press the **Refresh** button, or **Play** the scene._)
 
 See the [Effects](#effects) page for more information on the available effects.
 
@@ -37,7 +43,22 @@ See the [Effects](#effects) page for more information on the available effects.
 
 ## Effects
 
-There are 6 types of effects: `Color`, `Move`, `Rotate`, `Scale`, `Composite`, and `Per Vertex`.
+- [Documentation](#documentation)
+  - [Installation](#installation)
+    - [Dependencies](#dependencies)
+  - [Quick Start](#quick-start)
+  - [Effects](#effects)
+    - [Common Properties](#common-properties)
+    - [Color](#color)
+    - [Move](#move)
+    - [Rotate](#rotate)
+    - [Scale](#scale)
+    - [Per Vertex](#per-vertex)
+    - [Composite](#composite)
+    - [Creating Effects](#creating-effects)
+    - [Applying Effects](#applying-effects)
+    - [Controlling Effects](#controlling-effects)
+    - [Creating Your Own Effects](#creating-your-own-effects)
 
 > Note that TMP already has built-in effects like textures, outlines, fake 3D, drop shadows, etc. 
 
@@ -65,6 +86,7 @@ Animations' timing are different for each character:
 - `One Time`: The effect will **stop** when the time exceeds the duration. All other types will loop (in different ways).  
 - `Ping Pong`: The effect will **reverse** when the time exceeds the duration. This makes the effect go back and forth smoothly.
 - `Loop`: The effect will **restart** when the time exceeds the duration. If start and end values are not the same, the effect will have an abrupt jump.
+- `LoopWithFixedTime`: Like `One Time`, but all characters restarts after a fixed time. 
 
 <img src="Images/notonetime.png" width="50%" alt="">
 
@@ -73,6 +95,10 @@ Animations' timing are different for each character:
 
 ### Color
 
+<img src="Images/color-effects.gif" width="60%" alt="">
+
+Example: color effects in "Ready-to-use Effects" [sample](Samples.md). 
+
 The `Color` effect allows you to animate the color of the text. You can choose between different color types:
 - `Gradient`: Applies a gradient to the text.
 - `BetweenTwoColors`: Animates between two colors.
@@ -80,18 +106,48 @@ The `Color` effect allows you to animate the color of the text. You can choose b
 - `ColorToOriginal`: Animates from a color to the original color of the text.
 
 When using `Gradient`, you can set orientation (Horizontal, HorizontalPerCharacter, Vertical).
+- `Horizontal`: There is NO color variation inside a character.
+- `HorizontalPerCharacter`: There is horizontal color variation inside a character. The difference between the left and right side of the character is controlled by the `stride` property.
+- `Vertical`: same as `HorizontalPerCharacter`, but the color variation is vertical.
 
-Example:
 
 ### Move
 
-Example: wavy text
+<img src="Images/move-effects.gif" width="80%" alt="">
+
+Example: movement effects in "Ready-to-use Effects" [sample](Samples.md). 
+
+The `Move` effect allows you to animate the position of the text. You can specify the `startOffset` and `endOffset` of the movement.
+
 
 ### Rotate
 
+<img src="Images/rotate-effects.gif" width="60%" alt="">
+
+Example: rotate effects in "Ready-to-use Effects" [sample](Samples.md). 
+
+The `Rotate` effect allows you to animate the rotation of the text. You can specify the `startAngle` and `endAngle` of the rotation.
+
 ### Scale
 
+<img src="Images/size-effect.gif" width="20%" alt="">
+
+Example: scaling effect in "Ready-to-use Effects" [sample](Samples.md). 
+
+The `Scale` effect allows you to animate the scale of the text. You can specify the `startScale` and `endScale` of the scaling.
+
 ### Per Vertex
+
+<img src="Images/per-vertex-effects.gif" width="60%" alt="">
+
+Example: per-vertex effects in "Ready-to-use Effects" [sample](Samples.md). 
+
+Per-vertex effects allow you to assign a different effect to each vertex of the text. This allows for more complex animations. 
+
+Explanation of examples:
+- `Folding`: Top left and bottom right vertices do not have any effect, while the other vertices are scaling. 
+- `Stretch Wave`: The top vertices are using the `Bounce` effect, the bottom vertices are using the `Wave` effect.
+- `Sliding`: All vertices are moving horizontally, but top and bottom vertices are moving in opposite directions.
 
 ### Composite
 
@@ -105,6 +161,8 @@ This can be useful if there is a common set of effects that you want to apply to
 
 Effects are ScriptableObjects that can be created in the project view. Right-click and select `Create/Easy Text Effect/[Text Effect Type]`. Since effects are assets, they can be shared between multiple `TextEffect` components, and changes to the effect will be reflected in all components.
 
+<img src="Images/create.png" width="60%">
+
 ### Applying Effects
 
 There are 2 effect lists:
@@ -112,9 +170,12 @@ There are 2 effect lists:
 - `Tag Effects`: Effects that are applied to the text based on rich text tags.
 - `Global Effects`: Effects that are applied to every character in the text.
 
-Global effects are very easy to apply, just add an element to the list and drag the effect to the `Effect` field.
+**Global effects** are very easy to apply, just add an element to the list and drag the effect to the `Effect` field.
+- The option `overrideTagEffects` determines whether a global effect override tag effects or not.
 
-Tag effects are applied by adding a rich text tag to the text. The format is `<link=effectName>text</link>`. The `effectName` should match the `Effect Name` of the effect.
+**Tag effects** are applied by adding a rich text tag to the text. The format is `<link=effectName>text</link>`. The `effectName` should match the `Effect Name` of the effect.
+
+TODO: image
 
 > Using `link` is a workaround to make the tag work without writing a custom tag parser. 
 

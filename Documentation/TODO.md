@@ -3,8 +3,8 @@
 ## MUST
 - [ ] Demo Scene
   - [ ] add github link
-- [ ] Ready to use effects
-- [ ] Rotate center offset
+- [x] Ready to use effects
+- [x] Rotate center offset
 - [ ] Documentation
   - [ ] md files
   - [ ] inspector
@@ -17,4 +17,5 @@
 
 ## COULD
 
-- [ ] Per vertex settings
+- [x] Per vertex settings
+- [ ] Unity Asset Store
