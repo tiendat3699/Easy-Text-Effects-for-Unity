@@ -43,22 +43,12 @@ See the [Effects](#effects) page for more information on the available effects.
 
 ## Effects
 
-- [Documentation](#documentation)
-  - [Installation](#installation)
-    - [Dependencies](#dependencies)
-  - [Quick Start](#quick-start)
-  - [Effects](#effects)
-    - [Common Properties](#common-properties)
-    - [Color](#color)
-    - [Move](#move)
-    - [Rotate](#rotate)
-    - [Scale](#scale)
-    - [Per Vertex](#per-vertex)
-    - [Composite](#composite)
-    - [Creating Effects](#creating-effects)
-    - [Applying Effects](#applying-effects)
-    - [Controlling Effects](#controlling-effects)
-    - [Creating Your Own Effects](#creating-your-own-effects)
+- [Common Properties](#common-properties)
+- 6 types of effects: [Color](#color), [Move](#move), [Rotate](#rotate), [Scale](#scale), [Per Vertex](#per-vertex), and [Composite](#composite)
+- [Creating Effects](#creating-effects)
+- [Applying Effects](#applying-effects)
+- [Controlling Effects](#controlling-effects)
+- [Creating Your Own Effects](#creating-your-own-effects)
 
 > Note that TMP already has built-in effects like textures, outlines, fake 3D, drop shadows, etc. 
 
