@@ -1,4 +1,4 @@
-# TODO
+# ✅ TODO
 
 ## MUST
 - [ ] Change Github repo name
@@ -15,6 +15,7 @@
 - [x] Clean Up
   - [x] Remove persistent
   - [x] Organize effects in demo 
+- [ ] Tag Effects Preset
 
 ## COULD
 

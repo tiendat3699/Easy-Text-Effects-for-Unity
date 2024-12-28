@@ -1,4 +1,4 @@
-# Documentation
+# 📖 Documentation
 
 Table of Contents
 1. [Installation](#installation)
@@ -6,7 +6,7 @@ Table of Contents
 3. [Effects](#effects)
 4. [Samples](Samples.md)
 
-## Installation
+## 📦 Installation
 
 Easiest way is to [install Easy Text Effects as a package](https://docs.unity3d.com/Manual/upm-ui-giturl.html).
 
@@ -26,7 +26,7 @@ This package only works with **TextMeshPro**.
 
 **MyBox** is used for some inspector utilities. It should automatically be installed when you install this package. If not, you can install it from [github url](https://github.com/Deadcows/MyBox.git).
 
-## Quick Start
+## 🚀 Quick Start
 
 Animate your text with 3 simple steps:
 
@@ -41,7 +41,7 @@ See the [Effects](#effects) page for more information on the available effects.
 
 <img src="Images/component.png" width="50%">
 
-## Effects
+## ✨ Effects
 
 - [Common Properties](#common-properties)
 - 6 types of effects: [Color](#color), [Move](#move), [Rotate](#rotate), [Scale](#scale), [Per Vertex](#per-vertex), and [Composite](#composite)
@@ -62,7 +62,7 @@ Animations' timing are different for each character:
 - `Duration Per Char`: The duration of one cycle of the effect for each character.
 - `Time Between Chars`: The time between the start of each character's effect. You can set it to 0 to make the effect text-wise.
 
-<img src="Images/time.png" width="50%" alt="">
+<img src="Images/time.png" width="40%" alt="">
 
 `No Delay For Later Chars`: If enabled, the effect will start immediately for all characters, instead of waiting for the previous character to finish.
 
@@ -79,6 +79,8 @@ Animations' timing are different for each character:
 - `LoopWithFixedTime`: Like `One Time`, but all characters restarts after a fixed time. 
 
 <img src="Images/notonetime.png" width="50%" alt="">
+
+<img src="Images/fixed.png" width="50%" alt="">
 
 <img src="Images/clamp.png" width="50%" alt="">
 
@@ -164,6 +166,7 @@ There are 2 effect lists:
 - The option `overrideTagEffects` determines whether a global effect override tag effects or not.
 
 **Tag effects** are applied by adding a rich text tag to the text. The format is `<link=effectName>text</link>`. The `effectName` should match the `Effect Name` of the effect.
+- When adding multiple tag effects, the format is `<link=effectName1+effectName2>text</link>`. Don't include "+" in effect names for this reason.
 
 TODO: image
 

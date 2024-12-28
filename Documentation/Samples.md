@@ -1,4 +1,4 @@
-# Samples
+# 🎨 Samples
 
 There are 2 samples in this package:
 1. **Ready-to-use Effects**: A demo scene with some ready-to-use effects.
