@@ -7,6 +7,7 @@ namespace EasyTextEffects.Effects
     [CreateAssetMenu(fileName = "Composite", menuName = "Easy Text Effects/Composite")]
     public class Effect_Composite : TextEffect_Trigger
     {
+        [Space(10)]
         public List<TextEffect_Trigger> effects = new List<TextEffect_Trigger>();
 
         private void OnValidate()

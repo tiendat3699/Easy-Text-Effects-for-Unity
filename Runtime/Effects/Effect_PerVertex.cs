@@ -8,6 +8,7 @@ namespace EasyTextEffects.Effects
     [CreateAssetMenu(fileName = "PerVertex", menuName = "Easy Text Effects/Per Vertex")]
     public class Effect_PerVertex : TextEffect_Trigger
     {
+        [Space(10)]
         [Header("Top Left")] public List<TextEffect_Trigger> topLeftEffects = new List<TextEffect_Trigger>();
         [Header("Top Right")] public List<TextEffect_Trigger> topRightEffects = new List<TextEffect_Trigger>();
         [Header("Bottom Left")] public List<TextEffect_Trigger> bottomLeftEffects = new List<TextEffect_Trigger>();

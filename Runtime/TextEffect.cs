@@ -89,7 +89,7 @@ namespace EasyTextEffects
 
             foreach (var effectName in effectNames)
             {
-                TextEffectEntry result = tagEffects.Find(_entry => _entry.effect.effectName == effectName);
+                TextEffectEntry result = tagEffects.Find(_entry => _entry.effect.effectTag == effectName);
                 if (result == null)
                 {
                     Debug.LogWarning("Effect not found: " + effectName);
@@ -215,9 +215,9 @@ namespace EasyTextEffects
 
         public void StartManualEffect(string _effectName)
         {
-            GlobalTextEffectEntry effectEntry = manualEffects_.Find(_entry => _entry.effect.effectName == _effectName);
+            GlobalTextEffectEntry effectEntry = manualEffects_.Find(_entry => _entry.effect.effectTag == _effectName);
 
-            var names = manualEffects_.Select(_entry => _entry.effect.effectName).ToList();
+            var names = manualEffects_.Select(_entry => _entry.effect.effectTag).ToList();
 
             if (effectEntry != null)
                 effectEntry.effect.StartEffect();
@@ -230,9 +230,9 @@ namespace EasyTextEffects
 
         public void StartManualTagEffect(string _effectName)
         {
-            TextEffectEntry effectEntry = manualTagEffects_.Find(_entry => _entry.effect.effectName == _effectName);
+            TextEffectEntry effectEntry = manualTagEffects_.Find(_entry => _entry.effect.effectTag == _effectName);
 
-            var names = manualTagEffects_.Select(_entry => _entry.effect.effectName).ToList();
+            var names = manualTagEffects_.Select(_entry => _entry.effect.effectTag).ToList();
 
             if (effectEntry != null)
                 effectEntry.effect.StartEffect();

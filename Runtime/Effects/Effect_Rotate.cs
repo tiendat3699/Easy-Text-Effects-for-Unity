@@ -7,6 +7,7 @@ namespace EasyTextEffects.Effects
     public class Effect_Rotate : TextEffect_Trigger
     {
         [Space(10)]
+        [Header("Rotate")]
         public Vector2 centerOffset = Vector2.zero;
         [Range(-360, 360)] public float startAngle = 90;
         [Range(-360, 360)] public float endAngle = 0;

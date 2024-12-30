@@ -1,3 +1,5 @@
+using EasyTextEffects.Editor.EditorDocumentation;
+using MyBox;
 using TMPro;
 using UnityEngine;
 
@@ -6,6 +8,8 @@ namespace EasyTextEffects.Effects
     [CreateAssetMenu(fileName = "Scale", menuName = "Easy Text Effects/Scale")]
     public class Effect_Scale : TextEffect_Trigger
     {
+        [Space(10)]
+        [Header("Scale")]
         public float startScale = 0;
         public float endScale = 1;
 

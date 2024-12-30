@@ -1,6 +1,8 @@
+using EasyTextEffects.Editor.EditorDocumentation;
 using MyBox;
 using TMPro;
 using UnityEngine;
+using static EasyTextEffects.Editor.EditorDocumentation.FoldBoxAttribute;
 
 namespace EasyTextEffects.Effects
 {
@@ -22,6 +24,8 @@ namespace EasyTextEffects.Effects
             Vertical,
         }
 
+        [Space(10)]
+        [Header("Color")]
         public ColorType colorType;
 
         [ConditionalField(nameof(colorType), false, ColorType.BetweenTwoColors, ColorType.ColorToOriginal)]
@@ -45,10 +49,13 @@ namespace EasyTextEffects.Effects
         [ConditionalField(nameof(colorType), false, ColorType.OnlyAlpha)] [Range(0, 1)]
         public float startAlpha = 0;
 
-        [ConditionalField(nameof(colorType), false, ColorType.OnlyAlpha)] [Range(0, 1)]
+        [FoldBox("Color", new[] { "Hi", "Hello" }, new[] { ContentType.Text, ContentType.Text })]
+        [ConditionalField(nameof(colorType), false, ColorType.OnlyAlpha)]
+        [Range(0, 1)]
         public float endAlpha = 1;
 
-        public override void ApplyEffect(TMP_TextInfo _textInfo, int _charIndex, int _startVertex = 0, int _endVertex = 3)
+        public override void ApplyEffect(TMP_TextInfo _textInfo, int _charIndex, int _startVertex = 0,
+            int _endVertex = 3)
         {
             if (!CheckCanApplyEffect(_charIndex)) return;
 

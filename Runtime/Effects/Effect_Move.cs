@@ -8,9 +8,9 @@ namespace EasyTextEffects.Effects
     [CreateAssetMenu(fileName = "Move", menuName = "Easy Text Effects/Move")]
     public class Effect_Move : TextEffect_Trigger
     {
-        [ConditionalField(nameof(differentForFourVertices), false, false)]
+        [Space(10)]
+        [Header("Move")]
         public Vector2 startOffset = -Vector2.up;
-        [ConditionalField(nameof(differentForFourVertices), false, false)]
         public Vector2 endOffset;
 
         public override void ApplyEffect(TMP_TextInfo _textInfo, int _charIndex, int _startVertex = 0, int _endVertex = 3)

@@ -1,6 +1,8 @@
+using EasyTextEffects.Editor.EditorDocumentation;
 using MyBox;
 using UnityEngine;
 using UnityEngine.Serialization;
+using static EasyTextEffects.Editor.EditorDocumentation.FoldBoxAttribute;
 
 namespace EasyTextEffects.Effects
 {
@@ -14,23 +16,39 @@ namespace EasyTextEffects.Effects
             OneTime
         }
 
-        [Space(10)] [Tooltip("Controls the warp modes of the easing curve.")]
-        public AnimationType animationType = AnimationType.OneTime;
+        [Space(10)] [Header("Type")] public AnimationType animationType = AnimationType.OneTime;
 
         [ConditionalField(nameof(animationType), false, AnimationType.LoopFixedDuration)]
         public float fixedDuration;
 
-        [Space(10)] [FormerlySerializedAs("duration")]
+        [Space(10)] [FormerlySerializedAs("duration")] [Header("Timing")]
         public float durationPerChar;
 
-        public bool noDelayForChars;
+        [FoldBox("Timing Explained",
+            new[] { "Packages/com.qiaozhilei.easy-text-effects/Documentation/Images/time.png, 400" },
+            new[] { ContentType.Image })]
         public float timeBetweenChars = 0.1f;
+
+        [FoldBox("No Delay Explained",
+            new[]
+            {
+                "If enabled, the effect will start immediately for all characters, instead of waiting for the previous character to finish.",
+                "Packages/com.qiaozhilei.easy-text-effects/Documentation/Images/nodelay.png, 400"
+            }, new[] { ContentType.Text, ContentType.Image })]
+        public bool noDelayForChars;
+
+        [FoldBox("Reverse Char Order Explained",
+            new[]
+            {
+                "If enabled, the effect will start from the last character instead of the first. This is useful for exit animations.",
+                "Packages/com.qiaozhilei.easy-text-effects/Documentation/Images/reverse.png, 400"
+            }, new[] { ContentType.Text, ContentType.Image })]
         public bool reverseCharOrder;
 
-        [FormerlySerializedAs("curve")] public AnimationCurve easingCurve = AnimationCurve.Linear(0, 0, 1, 1);
+        [Space(10)] [FormerlySerializedAs("curve")]
+        [Header("Curve")]
+        public AnimationCurve easingCurve = AnimationCurve.Linear(0, 0, 1, 1);
 
-        [Space(10)]
-        public bool differentForFourVertices;
 
         protected float startTime;
         protected bool started;
@@ -97,7 +115,7 @@ namespace EasyTextEffects.Effects
             var charStartTime = startTime + timeBetweenChars * charOrder;
             return time - charStartTime;
         }
-        
+
         public virtual TextEffect_Trigger Instantiate()
         {
             return Instantiate(this);
