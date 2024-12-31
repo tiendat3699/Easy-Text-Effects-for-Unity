@@ -9,6 +9,7 @@ namespace EasyTextEffects.Editor
         private string manualEffectName_;
         private string manualTagEffectName_;
         private bool debugButtonsVisible_;
+        private bool documentationVisible_;
 
         public override void OnInspectorGUI()
         {
@@ -29,9 +30,7 @@ namespace EasyTextEffects.Editor
                 myScript.UpdateStyleInfos();
             }
 
-            GUILayout.BeginVertical("Box");
-
-            DrawFoldoutHeader("Debug Buttons", ref debugButtonsVisible_);
+            EditorDocumentation.EditorDocumentation.BeginFoldBox("Debug Buttons", ref debugButtonsVisible_, EditorDocumentation.EditorDocumentation.IconType.Tool);
             if (debugButtonsVisible_)
             {
                 GUILayout.BeginHorizontal();
@@ -76,9 +75,11 @@ namespace EasyTextEffects.Editor
                 }
                 GUILayout.EndHorizontal();
             }
+            EditorDocumentation.EditorDocumentation.EndFoldBox();
 
+            EditorDocumentation.EditorDocumentation.BeginFoldBox("Documentation", ref documentationVisible_);
+            EditorDocumentation.EditorDocumentation.EndFoldBox();
 
-            GUILayout.EndVertical();
         }
 
         private void DrawFoldoutHeader(string title, ref bool foldoutState)

@@ -21,7 +21,13 @@ namespace EasyTextEffects.Effects
         [ConditionalField(nameof(animationType), false, AnimationType.LoopFixedDuration)]
         public float fixedDuration;
 
-        [Space(10)] [FormerlySerializedAs("duration")] [Header("Timing")]
+
+        [Space(10)]
+        [FormerlySerializedAs("duration")]
+        [Header("Timing")]
+        [FoldBox("Timing Explained",
+            new[] { "Packages/com.qiaozhilei.easy-text-effects/Documentation/Images/time.png, 400" },
+            new[] { ContentType.Image })]
         public float durationPerChar;
 
         [FoldBox("Timing Explained",
@@ -45,8 +51,7 @@ namespace EasyTextEffects.Effects
             }, new[] { ContentType.Text, ContentType.Image })]
         public bool reverseCharOrder;
 
-        [Space(10)] [FormerlySerializedAs("curve")]
-        [Header("Curve")]
+        [Space(10)] [FormerlySerializedAs("curve")] [Header("Curve")]
         public AnimationCurve easingCurve = AnimationCurve.Linear(0, 0, 1, 1);
 
 

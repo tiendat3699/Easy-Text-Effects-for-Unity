@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using EasyTextEffects.Editor.EditorDocumentation;
 using EasyTextEffects.Effects;
 using MyBox;
 using TMPro;

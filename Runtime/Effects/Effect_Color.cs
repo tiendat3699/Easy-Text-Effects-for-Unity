@@ -26,6 +26,7 @@ namespace EasyTextEffects.Effects
 
         [Space(10)]
         [Header("Color")]
+        [FoldBox("Color", new[] { "Hi", "Hello" }, new[] { ContentType.Text, ContentType.Text })]
         public ColorType colorType;
 
         [ConditionalField(nameof(colorType), false, ColorType.BetweenTwoColors, ColorType.ColorToOriginal)]
@@ -49,7 +50,6 @@ namespace EasyTextEffects.Effects
         [ConditionalField(nameof(colorType), false, ColorType.OnlyAlpha)] [Range(0, 1)]
         public float startAlpha = 0;
 
-        [FoldBox("Color", new[] { "Hi", "Hello" }, new[] { ContentType.Text, ContentType.Text })]
         [ConditionalField(nameof(colorType), false, ColorType.OnlyAlpha)]
         [Range(0, 1)]
         public float endAlpha = 1;

@@ -18,7 +18,8 @@ namespace EasyTextEffects.Editor.EditorDocumentation
             Move,
             Rotate,
             Scale,
-            Search
+            Search,
+            Tool
         }
 
         public static string GetIconName(IconType _iconType)
@@ -35,11 +36,12 @@ namespace EasyTextEffects.Editor.EditorDocumentation
                 IconType.Rotate => "d_RotateTool",
                 IconType.Scale => "d_ScaleTool",
                 IconType.Search => "d_ViewToolOrbit",
+                IconType.Tool => "CustomTool",
                 _ => "d__Help"
             };
         }
 
-        public static void BeginFoldBox(string _title, ref bool _foldoutState)
+        public static void BeginFoldBox(string _title, ref bool _foldoutState, IconType _icon = IconType.Help)
         {
             if (!show) return;
             EditorGUILayout.BeginVertical("HelpBox");
@@ -48,7 +50,7 @@ namespace EasyTextEffects.Editor.EditorDocumentation
             EditorGUILayout.BeginHorizontal();
 
             // icon
-            GUIContent icon = EditorGUIUtility.IconContent(GetIconName(IconType.Help));
+            GUIContent icon = EditorGUIUtility.IconContent(GetIconName(_icon));
             GUILayout.Label(icon, GUILayout.Width(16), GUILayout.Height(16));
 
             var titleStyle = new GUIStyle(EditorStyles.label)
@@ -140,6 +142,36 @@ namespace EasyTextEffects.Editor.EditorDocumentation
                 // EditorGUILayout.HelpBox(_errorMessage, MessageType.Error);
                 Debug.LogError(_errorMessage);
             }
+        }
+
+        public static void InlineFoldBox(Rect _position, SerializedProperty _property, GUIContent _label, ref bool _foldoutState)
+        {
+            if (!show)
+            {
+                EditorGUI.PropertyField(_position, _property, _label, true);
+                return;
+            }
+            EditorGUILayout.BeginHorizontal();
+            GUIContent icon = EditorGUIUtility.IconContent(GetIconName(IconType.Help));
+            
+            var iconDimension = EditorGUIUtility.singleLineHeight;
+            var buttonStyle = new GUIStyle(GUI.skin.button)
+            {
+                fixedHeight = iconDimension,
+                fixedWidth = iconDimension,
+                padding = new RectOffset(2, 2, 2, 2)
+            };
+            var rect = new Rect(_position.x, _position.y, iconDimension, iconDimension);
+            if (GUI.Button(rect, icon, buttonStyle))
+            {
+                _foldoutState = !_foldoutState; // Toggle foldout state
+                Event.current.Use();
+            }
+            
+            var propertyWidth = _position.width - iconDimension; // Adjust width after foldout
+            var propertyRect = new Rect(_position.x + iconDimension, _position.y, propertyWidth, _position.height);
+            EditorGUI.PropertyField(propertyRect, _property, _label, true);
+            EditorGUILayout.EndHorizontal();
         }
     }
 }
