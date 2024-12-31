@@ -31,7 +31,7 @@ namespace EasyTextEffects
             return center;
         }
 
-        [ButtonMethod(ButtonMethodDrawOrder.BeforeInspector)] 
+        // [ButtonMethod(ButtonMethodDrawOrder.BeforeInspector)] 
         public void ToggleDocumentation()
         {
             EditorDocumentation.show = !EditorDocumentation.show;

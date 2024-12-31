@@ -7,14 +7,15 @@ namespace EasyTextEffects
     public class SequenceManager : MonoBehaviour
     {
         public List<GameObject> slides;
-    
+
         private int currentSlideIndex_ = -1;
-    
+        public List<float> slideDelays;
+
         void Start()
         {
-            foreach (var slide in slides)
+            for (int i = 0; i < slides.Count; i++)
             {
-                slide.SetActive(false);
+                slides[i].SetActive(false);
             }
         }
 
@@ -32,16 +33,46 @@ namespace EasyTextEffects
             if (currentSlideIndex_ < slides.Count - 1)
             {
                 if (currentSlideIndex_ >= 0)
-                    slides[currentSlideIndex_].SetActive(false);
+                {
+                    StopEffect(currentSlideIndex_);
+                }
+
                 currentSlideIndex_++;
-                slides[currentSlideIndex_].SetActive(true);
+                Invoke(nameof(StartCurrentEffect), slideDelays[currentSlideIndex_]);
             }
             else
             {
-                slides[^1].SetActive(false);
+                StopEffect(slides.Count - 1);
                 currentSlideIndex_ = -1;
             }
         }
 
+        private void StopEffect(int _index)
+        {
+            GameObject currentSlide = slides[_index];
+            // currentSlide.SetActive(false);
+            var currentText = currentSlide.GetComponentInChildren<TextEffect>();
+            if (currentText != null)
+            {
+                currentText.StartManualEffect("exit");
+            }
+        }
+
+        private void StartEffect(int _index)
+        {
+            GameObject currentSlide = slides[_index];
+
+            currentSlide.SetActive(true);
+            var currentText = currentSlide.GetComponentInChildren<TextEffect>();
+            if (currentText != null)
+            {
+                currentText.UpdateStyleInfos();
+            }
+        }
+
+        private void StartCurrentEffect()
+        {
+            StartEffect(currentSlideIndex_);
+        }
     }
 }

@@ -15,6 +15,7 @@ namespace EasyTextEffects.Effects
             BetweenTwoColors,
             OnlyAlpha,
             ColorToOriginal,
+            OriginalToColor,
         }
 
         public enum GradientOrientation
@@ -32,7 +33,7 @@ namespace EasyTextEffects.Effects
         [ConditionalField(nameof(colorType), false, ColorType.BetweenTwoColors, ColorType.ColorToOriginal)]
         public Color startColor = Color.white;
 
-        [ConditionalField(nameof(colorType), false, ColorType.BetweenTwoColors)]
+        [ConditionalField(nameof(colorType), false, ColorType.BetweenTwoColors, ColorType.OriginalToColor)]
         public Color endColor = Color.white;
 
 
@@ -101,6 +102,10 @@ namespace EasyTextEffects.Effects
                 else if (colorType == ColorType.ColorToOriginal)
                 {
                     color = Interpolate(startColor, color, _charIndex);
+                }
+                else if (colorType == ColorType.OriginalToColor)
+                {
+                    color = Interpolate(color, endColor, _charIndex);
                 }
 
                 _textInfo.meshInfo[materialIndex].colors32[vertexIndex] = color;

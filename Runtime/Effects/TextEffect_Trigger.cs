@@ -53,6 +53,7 @@ namespace EasyTextEffects.Effects
 
         [Space(10)] [FormerlySerializedAs("curve")] [Header("Curve")]
         public AnimationCurve easingCurve = AnimationCurve.Linear(0, 0, 1, 1);
+        public bool clampBetween0And1;
 
 
         protected float startTime;
@@ -93,19 +94,31 @@ namespace EasyTextEffects.Effects
         protected float Interpolate(float _start, float _end, int _charIndex)
         {
             var time = GetTimeForChar(_charIndex);
-            return Mathf.Lerp(_start, _end, easingCurve.Evaluate(time / durationPerChar));
+            // return Mathf.Lerp(_start, _end, easingCurve.Evaluate(time / durationPerChar));
+            var t = easingCurve.Evaluate(time / durationPerChar);
+            if (clampBetween0And1)
+                t = Mathf.Clamp01(t);
+            return _start * (1 - t) + _end * t;
         }
 
         protected Vector2 Interpolate(Vector2 _start, Vector2 _end, int _charIndex)
         {
             var time = GetTimeForChar(_charIndex);
-            return Vector2.Lerp(_start, _end, easingCurve.Evaluate(time / durationPerChar));
+            // return Vector2.Lerp(_start, _end, easingCurve.Evaluate(time / durationPerChar));
+            var t = easingCurve.Evaluate(time / durationPerChar);
+            if (clampBetween0And1)
+                t = Mathf.Clamp01(t);
+            return _start * (1 - t) + _end * t;
         }
 
         protected Color Interpolate(Color _start, Color _end, int _charIndex)
         {
             var time = GetTimeForChar(_charIndex);
-            return Color.Lerp(_start, _end, easingCurve.Evaluate(time / durationPerChar));
+            // return Color.Lerp(_start, _end, easingCurve.Evaluate(time / durationPerChar));
+            var t = easingCurve.Evaluate(time / durationPerChar);
+            if (clampBetween0And1)
+                t = Mathf.Clamp01(t);
+            return _start * (1 - t) + _end * t;
         }
 
         private float GetTimeForChar(int _charIndex)

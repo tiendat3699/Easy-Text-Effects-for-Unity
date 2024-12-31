@@ -78,6 +78,9 @@ namespace EasyTextEffects.Editor
             EditorDocumentation.EditorDocumentation.EndFoldBox();
 
             EditorDocumentation.EditorDocumentation.BeginFoldBox("Documentation", ref documentationVisible_);
+            
+            // TODO: Add documentation
+            
             EditorDocumentation.EditorDocumentation.EndFoldBox();
 
         }

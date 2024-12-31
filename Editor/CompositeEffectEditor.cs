@@ -35,7 +35,7 @@ This can be useful if there is a common set of effects that you want to apply to
 
             // draw the list of effects 
             serializedObject.Update();
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("effectName"), true);
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("effectTag"), true);
             EditorGUILayout.PropertyField(serializedObject.FindProperty("effects"), true);
             serializedObject.ApplyModifiedProperties();
         }

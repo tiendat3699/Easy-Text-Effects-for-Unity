@@ -16,10 +16,19 @@ namespace EasyTextEffects
     public class TextEffect : MonoBehaviour
     {
         public TMP_Text text;
-        public List<TextEffectEntry> tagEffects;
-        [FormerlySerializedAs("effectsList")] public List<GlobalTextEffectEntry> globalEffects;
-        [Range(1, 120)] public int updatesPerSecond = 30;
+        [Space(5)] public bool usePreset;
 
+        [ConditionalField(nameof(usePreset), false)]
+        public TagEffectsPreset preset;
+
+        public List<TextEffectEntry> tagEffects;
+
+        [Space(5)] [FormerlySerializedAs("effectsList")]
+        public List<GlobalTextEffectEntry> globalEffects;
+
+        [Space(5)] [Range(1, 120)] public int updatesPerSecond = 30;
+
+        private List<TextEffectEntry> allTagEffects_;
         private List<TextEffectEntry> onStartTagEffects_;
         private List<TextEffectEntry> manualTagEffects_;
         private List<GlobalTextEffectEntry> onStartEffects_;
@@ -53,6 +62,10 @@ namespace EasyTextEffects
             });
 
             // add effects to list
+            allTagEffects_ = new List<TextEffectEntry>(tagEffects);
+            if (usePreset && preset != null)
+                allTagEffects_.AddRange(preset.tagEffects);
+            
             onStartTagEffects_ = new List<TextEffectEntry>();
             manualTagEffects_ = new List<TextEffectEntry>();
             for (var i = 0; i < styles.Length; i++)
@@ -63,7 +76,6 @@ namespace EasyTextEffects
 
                 // copy effects
                 var effectTemplates = GetTagEffectsByName(style.GetLinkID());
-                // Debug.Log($"style {i} -- {style.GetLinkID()} -- {effectTemplates.Count} effects");
                 foreach (TextEffectEntry entry in effectTemplates)
                 {
                     if (entry.effect == null)
@@ -80,7 +92,6 @@ namespace EasyTextEffects
             }
 
             StartOnStartEffects();
-            text.fontMaterial.SetFloat("_UseTex", 0);
         }
 
         private List<TextEffectEntry> GetTagEffectsByName(string _effectName)
@@ -90,15 +101,19 @@ namespace EasyTextEffects
 
             foreach (var effectName in effectNames)
             {
-                TextEffectEntry result = tagEffects.Find(_entry => _entry.effect.effectTag == effectName);
-                if (result == null)
-                {
+                var findAll = allTagEffects_.FindAll(_entry => _entry.effect?.effectTag == effectName);
+                if (findAll.Count >= 1)
+                    results.Add(findAll[0]);
+#if UNITY_EDITOR
+                if (findAll.Count == 0)
                     Debug.LogWarning("Effect not found: " + effectName);
-                }
-                else
+
+                if (findAll.Count > 1)
                 {
-                    results.Add(result);
+                    Debug.LogWarning("Multiple effects found: " + effectName);
+                    Debug.Log("Effects: " + string.Join(", ", findAll.Select(_entry => _entry.effect.name).ToArray()));
                 }
+#endif
             }
 
             return results;
@@ -121,6 +136,7 @@ namespace EasyTextEffects
 #endif
             if (text == null)
                 return;
+            Debug.Log("TextEffect enabled");
             text.ForceMeshUpdate();
             UpdateStyleInfos();
         }
@@ -136,8 +152,9 @@ namespace EasyTextEffects
         {
             if (text == null)
                 return;
-            text.ForceMeshUpdate();
-            UpdateStyleInfos();
+            // Debug.Log("TextEffect started");
+            // text.ForceMeshUpdate();
+            // UpdateStyleInfos();
         }
 
         private float nextUpdateTime_ = 0;
@@ -188,10 +205,11 @@ namespace EasyTextEffects
             }
         }
 
-        private void StartOnStartEffects()
+        public void StartOnStartEffects()
         {
             onStartEffects_.ForEach(_effect => _effect.effect.StartEffect());
             onStartTagEffects_.ForEach(_effect => _effect.effect.StartEffect());
+            nextUpdateTime_ = 0; // immediately update
         }
 
         public void StartManualEffects()
@@ -244,7 +262,7 @@ namespace EasyTextEffects
             }
         }
 
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         private void OnDrawGizmosSelected()
         {
             if (text == null || text.textInfo == null)
@@ -273,6 +291,6 @@ namespace EasyTextEffects
                 // Gizmos.DrawWireCube((botLeft + topRight) / 2, topRight - botLeft);
             }
         }
-        #endif
+#endif
     }
 }

@@ -23,14 +23,14 @@
   },
   "samples": [
     {
-      "displayName": "Demo Scene and Effects",
+      "displayName": "Ready-to-use Effects",
       "description": "...",
-      "path": "Samples~/Demo"
+      "path": "Samples~/Ready-to-use Effects"
     },
     {
-      "displayName": "Demo Effects",
+      "displayName": "Demo Scene",
       "description": "...",
-      "path": "Samples~/Demo/Effects"
+      "path": "Samples~/Demo"
     }
   ]
 }
