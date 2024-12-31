@@ -18,7 +18,7 @@ Easiest way is to [install Easy Text Effects as a package](https://docs.unity3d.
 https://github.com/LeiQiaoZhi/Easy-Text-Effect.git
 ```
 
-> If you are new to this package, I highly recommend you to import the samples in the "**Samples**" tab in the details panel of this package in the package manager. There is a demo scene and some ready-to-use effects. See [Samples](#samples) for more information.
+> If you are new to this package, I highly recommend you to import the samples in the "**Samples**" tab in the details panel of this package in the package manager. There is a demo scene and some ready-to-use effects. See [Samples](Samples.md) for more information.
 
 ### Dependencies
 
@@ -33,6 +33,7 @@ Animate your text with 3 simple steps:
 1. Add a `TextEffect` component, drag your `TMP Text` component to the `Text` field.
 2. Create a new effect in the project view, by right-clicking and selecting
    `Create/Easy Text Effect/[Text Effect Type]`.
+    - or use ready-to-use effects from [samples](Samples.md)
 3. Add an element to an effect list, then drag the effect to the `Effect` field.
 
 > You should see your effects right away in the editor! (_If not, press the **Refresh** button, or **Play** the scene._)
@@ -78,11 +79,13 @@ Animations' timing are different for each character:
 - `Loop`: The effect will **restart** when the time exceeds the duration. If start and end values are not the same, the effect will have an abrupt jump.
 - `LoopWithFixedTime`: Like `One Time`, but all characters restarts after a fixed time. 
 
+<img src="Images/onetime.png" width="40%" alt="">
+
 <img src="Images/notonetime.png" width="50%" alt="">
 
 <img src="Images/fixed.png" width="50%" alt="">
 
-<img src="Images/clamp.png" width="50%" alt="">
+<img src="Images/loopvspingpong.png" width="50%" alt="">
 
 
 ### Color

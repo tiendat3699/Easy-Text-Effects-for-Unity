@@ -9,7 +9,7 @@
 
 **Easy Text Effects** is a free and open-source Unity package that brings life to your text. Whether you're working on games, UI, or interactive experiences, this package provides an intuitive and flexible way to create captivating text animations.
 
-[**Installation**](Documentation/Documentation.md#installation)
+[**📦 Install from github url**](Documentation/Documentation.md#installation)
 
 ## ✨ Features
 
@@ -33,7 +33,8 @@ For detailed steps, visit the [Quick Start Guide](Documentation/Documentation.md
 
 ## 📚 Learn More
 
-- [**Comprehensive Documentation**](Documentation/Documentation.md)
+- [**Simple and Clear Documentation**](Documentation/Documentation.md)
+- [**Read Documentation Directly in Inspector!**](Documentation/EmbeddedDocumentation.md)
 - [Samples](Documentation/Samples.md)
 
 ## 🛠️ Customization
