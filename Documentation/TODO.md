@@ -1,9 +1,9 @@
 # ✅ TODO
 
 ## MUST
-- [ ] Change Github repo name
+- [x] Change Github repo name
 - [ ] Demo Scene
-  - [ ] add github link
+  - [x] add github link
 - [x] Ready to use effects
 - [x] Rotate center offset
 - [ ] Documentation
@@ -15,7 +15,7 @@
 - [x] Clean Up
   - [x] Remove persistent
   - [x] Organize effects in demo 
-- [ ] Tag Effects Preset
+- [x] Tag Effects Preset
 
 ## COULD
 

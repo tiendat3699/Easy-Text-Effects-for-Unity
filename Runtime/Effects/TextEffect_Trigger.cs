@@ -16,7 +16,17 @@ namespace EasyTextEffects.Effects
             OneTime
         }
 
-        [Space(10)] [Header("Type")] public AnimationType animationType = AnimationType.OneTime;
+        [Space(10)] [Header("Type")] 
+        [FoldBox("",
+            new[]
+            {
+                "Packages/com.qiaozhilei.easy-text-effects/Documentation/Images/onetime.png, 200",
+                "Packages/com.qiaozhilei.easy-text-effects/Documentation/Images/notonetime.png, 300",
+                "Packages/com.qiaozhilei.easy-text-effects/Documentation/Images/fixed.png, 300",
+                "Packages/com.qiaozhilei.easy-text-effects/Documentation/Images/loopvspingpong.png, 300",
+            },
+            new[] { ContentType.Image })]
+        public AnimationType animationType = AnimationType.OneTime;
 
         [ConditionalField(nameof(animationType), false, AnimationType.LoopFixedDuration)]
         public float fixedDuration;
@@ -26,12 +36,12 @@ namespace EasyTextEffects.Effects
         [FormerlySerializedAs("duration")]
         [Header("Timing")]
         [FoldBox("Timing Explained",
-            new[] { "Packages/com.qiaozhilei.easy-text-effects/Documentation/Images/time.png, 400" },
+            new[] { "Packages/com.qiaozhilei.easy-text-effects/Documentation/Images/time.png, 300" },
             new[] { ContentType.Image })]
         public float durationPerChar;
 
         [FoldBox("Timing Explained",
-            new[] { "Packages/com.qiaozhilei.easy-text-effects/Documentation/Images/time.png, 400" },
+            new[] { "Packages/com.qiaozhilei.easy-text-effects/Documentation/Images/time.png, 300" },
             new[] { ContentType.Image })]
         public float timeBetweenChars = 0.1f;
 
@@ -39,7 +49,7 @@ namespace EasyTextEffects.Effects
             new[]
             {
                 "If enabled, the effect will start immediately for all characters, instead of waiting for the previous character to finish.",
-                "Packages/com.qiaozhilei.easy-text-effects/Documentation/Images/nodelay.png, 400"
+                "Packages/com.qiaozhilei.easy-text-effects/Documentation/Images/nodelay.png, 300"
             }, new[] { ContentType.Text, ContentType.Image })]
         public bool noDelayForChars;
 
@@ -47,7 +57,7 @@ namespace EasyTextEffects.Effects
             new[]
             {
                 "If enabled, the effect will start from the last character instead of the first. This is useful for exit animations.",
-                "Packages/com.qiaozhilei.easy-text-effects/Documentation/Images/reverse.png, 400"
+                "Packages/com.qiaozhilei.easy-text-effects/Documentation/Images/reverse.png, 300"
             }, new[] { ContentType.Text, ContentType.Image })]
         public bool reverseCharOrder;
 

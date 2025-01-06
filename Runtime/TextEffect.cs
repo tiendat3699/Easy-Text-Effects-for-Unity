@@ -136,7 +136,7 @@ namespace EasyTextEffects
 #endif
             if (text == null)
                 return;
-            Debug.Log("TextEffect enabled");
+            // Debug.Log("TextEffect enabled");
             text.ForceMeshUpdate();
             UpdateStyleInfos();
         }

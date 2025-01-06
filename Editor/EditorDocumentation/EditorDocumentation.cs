@@ -123,8 +123,6 @@ namespace EasyTextEffects.Editor.EditorDocumentation
                     if (asset != null)
                     {
                         EditorGUIUtility.PingObject(asset);
-                        var fullPath = AssetDatabase.GetAssetPath(asset);
-                        System.Diagnostics.Process.Start(fullPath);
                     }
                     else
                     {

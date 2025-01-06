@@ -18,7 +18,12 @@ Easiest way is to [install Easy Text Effects as a package](https://docs.unity3d.
 https://github.com/LeiQiaoZhi/Easy-Text-Effect.git
 ```
 
+<img src="Images/package.png" width="30%">
+
+
+<br>
 > If you are new to this package, I highly recommend you to import the samples in the "**Samples**" tab in the details panel of this package in the package manager. There is a demo scene and some ready-to-use effects. See [Samples](Samples.md) for more information.
+
 
 ### Dependencies
 
@@ -30,7 +35,7 @@ This package only works with **TextMeshPro**.
 
 Animate your text with 3 simple steps:
 
-1. Add a `TextEffect` component, drag your `TMP Text` component to the `Text` field.
+1. Add a <img src="../Editor/Icons/TextEffect.png" alt="Icon" width="14" style="vertical-align: middle;"> `TextEffect` component, drag your `TMP Text` component to the `Text` field.
 2. Create a new effect in the project view, by right-clicking and selecting
    `Create/Easy Text Effect/[Text Effect Type]`.
     - or use ready-to-use effects from [samples](Samples.md)
@@ -95,10 +100,12 @@ Animations' timing are different for each character:
 Example: color effects in "Ready-to-use Effects" [sample](Samples.md). 
 
 The `Color` effect allows you to animate the color of the text. You can choose between different color types:
-- `Gradient`: Applies a gradient to the text.
+- `Gradient`: Applies a gradient horizontally across the text.
 - `BetweenTwoColors`: Animates between two colors.
 - `OnlyAlpha`: Animates only the alpha (transparency) of the text.
-- `ColorToOriginal`: Animates from a color to the original color of the text.
+- `ColorToOriginal`: Animates from a start color to the original color of the text.
+- `OriginalToColor`: Animates from the original color of the text to an end color.
+
 
 When using `Gradient`, you can set orientation (Horizontal, HorizontalPerCharacter, Vertical).
 - `Horizontal`: There is NO color variation inside a character.
