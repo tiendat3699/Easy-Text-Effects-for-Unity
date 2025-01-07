@@ -18,9 +18,6 @@
     "unity",
     "package"
   ],
-  "dependencies": {
-    "com.domybest.mybox": "https://github.com/Deadcows/MyBox.git"
-  },
   "samples": [
     {
       "displayName": "Ready-to-use Effects",
