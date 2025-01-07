@@ -9,6 +9,9 @@
     "email": "georgeleiqiaozhi@gmail.com",
     "url": "qiaozhi.lei.carrd.co"
   },
+  "dependencies": {
+    "com.unity.ugui": "1.0.0"
+  },
   "keywords": [
     "text",
     "text effects",
