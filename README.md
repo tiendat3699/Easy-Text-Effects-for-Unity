@@ -48,7 +48,7 @@ Unleash your creativity with:
 
 - **Animation Curves**: Control timing, speed, and intensity.
 - [**Per-Vertex Effects**](Documentation/Documentation.md#per-vertex): Animate individual letters for dynamic text effects.
-- **Combine Effects**: Create complex animations with composite effects.
+- [**Combine Effects**](Documentation/Documentation.md#composite): Create complex animations with composite effects.
 
 ## 🤝 Contributing
 
