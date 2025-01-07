@@ -11,11 +11,8 @@
 
 [**📦 Install from github url**](Documentation/Documentation.md#installation)
 
-<div style="display: flex; align-items: left; gap: 10px;">
-  <img src="Documentation/Images/combine.gif" style="width: 32%; height: auto; max-width: 300px;">
-  <img src="Documentation/Images/entry.gif" style="width: 32%; height: auto;max-width: 300px;">
-  <img src="Documentation/Images/customize.gif" style="width: 32%; height: auto;max-width: 300px;">
-</div>
+| ![Combine](Documentation/Images/combine.gif) | ![Entry](Documentation/Images/entry.gif) | ![Customize](Documentation/Images/customize.gif) |
+|----------------------------------------------|------------------------------------------|--------------------------------------------------|
 
 ## ✨ Features
 
