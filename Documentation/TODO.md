@@ -2,7 +2,7 @@
 
 ## MUST
 - [x] Change Github repo name
-- [ ] Demo Scene
+- [x] Demo Scene
   - [x] add github link
 - [x] Ready to use effects
 - [x] Rotate center offset
