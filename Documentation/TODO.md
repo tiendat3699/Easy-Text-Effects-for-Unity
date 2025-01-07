@@ -6,9 +6,9 @@
   - [x] add github link
 - [x] Ready to use effects
 - [x] Rotate center offset
-- [ ] Documentation
-  - [ ] md files
-  - [ ] inspector
+- [x] Documentation
+  - [x] md files
+  - [x] inspector
   - [x] readme
 - [x] Composite
   - [x] custom editor
@@ -16,6 +16,9 @@
   - [x] Remove persistent
   - [x] Organize effects in demo 
 - [x] Tag Effects Preset
+- [ ] Test importing from github url
+- [ ] Test other versions of Unity
+- [ ] Promo video
 
 ## COULD
 

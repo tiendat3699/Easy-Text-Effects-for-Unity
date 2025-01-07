@@ -31,8 +31,10 @@ namespace EasyTextEffects.Editor
             if (GUILayout.Button("REFRESH", buttonStyle))
             {
                 if (myScript.text != null)
+                {
                     myScript.text.ForceMeshUpdate();
-                myScript.UpdateStyleInfos();
+                    myScript.UpdateStyleInfos();
+                }
             }
 
             BeginFoldBox("Debug Buttons", ref debugButtonsVisible_, IconType.Tool);
@@ -128,8 +130,9 @@ Tag effects are applied by adding a rich text tag to the text. The format is <li
                     EditorStyles.wordWrappedLabel
                 );
             }
+
             EndFoldBox();
-            
+
             BeginFoldBox("Controlling Effects", ref controlEffectVisible_);
             if (controlEffectVisible_)
             {
@@ -153,6 +156,7 @@ There are some debug buttons to help you test manual effects in the editor.",
                     EditorStyles.wordWrappedLabel
                 );
             }
+
             EndFoldBox();
         }
 

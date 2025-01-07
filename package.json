@@ -24,12 +24,12 @@
   "samples": [
     {
       "displayName": "Ready-to-use Effects",
-      "description": "...",
+      "description": "Import and use ready-to-use effects.",
       "path": "Samples~/Ready-to-use Effects"
     },
     {
       "displayName": "Demo Scene",
-      "description": "...",
+      "description": "Import to see how effects in the promo video are made.",
       "path": "Samples~/Demo"
     }
   ]

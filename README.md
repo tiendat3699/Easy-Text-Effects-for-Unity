@@ -11,6 +11,12 @@
 
 [**📦 Install from github url**](Documentation/Documentation.md#installation)
 
+<div style="display: flex; align-items: left; gap: 10px;">
+  <img src="Documentation/Images/combine.gif" style="width: 32%; height: auto; max-width: 300px;">
+  <img src="Documentation/Images/entry.gif" style="width: 32%; height: auto;max-width: 300px;">
+  <img src="Documentation/Images/customize.gif" style="width: 32%; height: auto;max-width: 300px;">
+</div>
+
 ## ✨ Features
 
 - **Effortless Setup**: Attach a single component, create effects as ScriptableObjects, and apply with drag-and-drop.
@@ -19,7 +25,7 @@
 - **Ready-to-Use Samples**: Kickstart your creativity with a library of pre-made effects.
 - **Real-Time Previews**: See your effects in the edit mode.
 
-<img src="Documentation/Images/ready.gif" alt="Text Effect" width="400">
+<img src="Documentation/Images/ready.gif" alt="Text Effect" width="500">
 
 ## 🚀 Quick Start
 
@@ -31,7 +37,7 @@
 
 For detailed steps, visit the [Quick Start Guide](Documentation/Documentation.md#quick-start).
 
-<img src="Documentation/Images/apply.gif" alt="Text Effect" width="400">
+<img src="Documentation/Images/apply.gif" alt="Text Effect" width="500">
 
 ## 📚 Learn More
 

@@ -25,6 +25,7 @@ namespace EasyTextEffects.Effects
             
             foreach (TextEffect_Trigger effect in effects)
             {
+                if (!effect) continue;
                 effect.ApplyEffect(_textInfo, _charIndex, _startVertex, _endVertex);
             }
         }
@@ -35,6 +36,7 @@ namespace EasyTextEffects.Effects
             
             foreach (TextEffect_Trigger effect in effects)
             {
+                if (!effect) continue;
                 effect.startCharIndex = startCharIndex;
                 effect.charLength = charLength;
                 effect.StartEffect();
@@ -47,6 +49,7 @@ namespace EasyTextEffects.Effects
             
             foreach (TextEffect_Trigger effect in effects)
             {
+                if (!effect) continue;
                 effect.StopEffect();
             }
         }
@@ -57,6 +60,7 @@ namespace EasyTextEffects.Effects
             instance.effects = new List<TextEffect_Trigger>();
             foreach (TextEffect_Trigger effect in effects)
             {
+                if (!effect) continue;
                 instance.effects.Add(effect.Instantiate());
             }
             return instance;

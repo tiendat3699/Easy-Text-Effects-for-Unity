@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 189149bbadd642b4b67717189d9ef2f0, type: 3}
   m_Name: PerVertex_Sliding
   m_EditorClassIdentifier: 
-  effectName: slide
+  effectTag: slide
   startCharIndex: 0
   charLength: 0
   animationType: 3
   fixedDuration: 0
   durationPerChar: 0
-  noDelayForChars: 0
   timeBetweenChars: 0.1
+  noDelayForChars: 0
   reverseCharOrder: 0
   easingCurve:
     serializedVersion: 2
@@ -45,12 +45,12 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  differentForFourVertices: 0
+  clampBetween0And1: 0
   topLeftEffects:
-  - {fileID: 11400000, guid: 3c1c3c5f97e114323af38a2a6b130bf0, type: 2}
+  - {fileID: 11400000, guid: 11f65a09313a34ecd89055e44d34684d, type: 2}
   topRightEffects:
-  - {fileID: 11400000, guid: 3c1c3c5f97e114323af38a2a6b130bf0, type: 2}
+  - {fileID: 11400000, guid: 11f65a09313a34ecd89055e44d34684d, type: 2}
   bottomLeftEffects:
-  - {fileID: 11400000, guid: 5f5f14bfb2f5e4b5d969427dcb624e38, type: 2}
+  - {fileID: 11400000, guid: 7430c30012d434411aec0d5268f4985a, type: 2}
   bottomRightEffects:
-  - {fileID: 11400000, guid: 5f5f14bfb2f5e4b5d969427dcb624e38, type: 2}
+  - {fileID: 11400000, guid: 7430c30012d434411aec0d5268f4985a, type: 2}

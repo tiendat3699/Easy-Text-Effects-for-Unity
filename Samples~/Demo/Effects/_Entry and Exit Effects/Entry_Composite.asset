@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e66ffc343c5f4ecaa9115a4c0e055e81, type: 3}
   m_Name: Entry_Composite
   m_EditorClassIdentifier: 
-  effectName: 
+  effectTag: entry
   startCharIndex: 0
   charLength: 0
   animationType: 3
   fixedDuration: 0
   durationPerChar: 0
-  noDelayForChars: 0
   timeBetweenChars: 0.1
+  noDelayForChars: 0
   reverseCharOrder: 0
   easingCurve:
     serializedVersion: 2
@@ -46,7 +46,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   effects:
-  - {fileID: 11400000, guid: 47e3419c6fccd4fa4a237c64556a5434, type: 2}
-  - {fileID: 11400000, guid: 3977ef3a3c2dd4d42a6744a99cef719b, type: 2}
-  - {fileID: 11400000, guid: e4c73a37d25fd4f38a3388a658ed446b, type: 2}
-  - {fileID: 11400000, guid: 476ea49d0e23a4e28a317e4193c6c2b1, type: 2}
+  - {fileID: 11400000, guid: cd41b859823e14d159b3952d66b82235, type: 2}
+  - {fileID: 11400000, guid: bcd8ef2323fa2427f929af92766afa95, type: 2}
+  - {fileID: 11400000, guid: 22dc1f14c93b648209affc247ceb1c76, type: 2}
+  - {fileID: 11400000, guid: 137386f28a3cd4b64b839515802b17ec, type: 2}
