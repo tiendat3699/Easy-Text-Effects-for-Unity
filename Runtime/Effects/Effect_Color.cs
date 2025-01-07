@@ -1,5 +1,5 @@
 using EasyTextEffects.Editor.EditorDocumentation;
-using MyBox;
+using EasyTextEffects.Editor.MyBoxCopy.Attributes;
 using TMPro;
 using UnityEngine;
 using static EasyTextEffects.Editor.EditorDocumentation.FoldBoxAttribute;

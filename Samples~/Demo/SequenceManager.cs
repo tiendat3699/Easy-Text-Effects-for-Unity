@@ -1,8 +1,7 @@
 using System.Collections.Generic;
-using MyBox;
 using UnityEngine;
 
-namespace EasyTextEffects
+namespace EasyTextEffects.Samples
 {
     public class SequenceManager : MonoBehaviour
     {
@@ -27,7 +26,6 @@ namespace EasyTextEffects
             }
         }
 
-        [ButtonMethod]
         public void NextSlide()
         {
             if (currentSlideIndex_ < slides.Count - 1)

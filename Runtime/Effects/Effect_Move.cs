@@ -1,5 +1,3 @@
-using System.Diagnostics;
-using MyBox;
 using TMPro;
 using UnityEngine;
 

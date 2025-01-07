@@ -1,5 +1,4 @@
 using EasyTextEffects.Editor.EditorDocumentation;
-using MyBox;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
