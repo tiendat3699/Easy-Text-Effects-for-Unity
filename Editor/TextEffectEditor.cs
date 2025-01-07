@@ -30,7 +30,8 @@ namespace EasyTextEffects.Editor
 
             if (GUILayout.Button("REFRESH", buttonStyle))
             {
-                myScript.text.ForceMeshUpdate();
+                if (myScript.text != null)
+                    myScript.text.ForceMeshUpdate();
                 myScript.UpdateStyleInfos();
             }
 

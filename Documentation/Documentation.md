@@ -47,6 +47,8 @@ See the [Effects](#effects) page for more information on the available effects.
 
 <img src="Images/component.png" width="50%">
 
+<img src="./Images/apply.gif" alt="Text Effect" width="500">
+
 ## ✨ Effects
 
 - [Common Properties](#common-properties)

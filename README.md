@@ -31,6 +31,8 @@
 
 For detailed steps, visit the [Quick Start Guide](Documentation/Documentation.md#quick-start).
 
+<img src="Documentation/Images/apply.gif" alt="Text Effect" width="400">
+
 ## 📚 Learn More
 
 - [**Simple and Clear Documentation**](Documentation/Documentation.md)
