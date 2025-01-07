@@ -33,7 +33,7 @@ namespace EasyTextEffects
         private List<TextEffectEntry> manualTagEffects_;
         private List<GlobalTextEffectEntry> onStartEffects_;
         private List<GlobalTextEffectEntry> manualEffects_;
-        private List<TextEffect_Trigger> entryEffectsCopied_;
+        private List<TextEffectInstance> entryEffectsCopied_;
 
         public void UpdateStyleInfos()
         {

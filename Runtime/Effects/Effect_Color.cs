@@ -6,8 +6,8 @@ using static EasyTextEffects.Editor.EditorDocumentation.FoldBoxAttribute;
 
 namespace EasyTextEffects.Effects
 {
-    [CreateAssetMenu(fileName = "Color", menuName = "Easy Text Effects/Color")]
-    public class Effect_Color : TextEffect_Trigger
+    [CreateAssetMenu(fileName = "Color", menuName = "Easy Text Effects/1. Color", order = 1)]
+    public class Effect_Color : TextEffectInstance
     {
         public enum ColorType
         {

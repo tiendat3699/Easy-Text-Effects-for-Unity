@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace EasyTextEffects.Effects
 {
-    [CreateAssetMenu(fileName = "Composite", menuName = "Easy Text Effects/Composite")]
-    public class Effect_Composite : TextEffect_Trigger
+    [CreateAssetMenu(fileName = "Composite", menuName = "Easy Text Effects/6. Composite", order = 6)]
+    public class Effect_Composite : TextEffectInstance
     {
         [Space(10)]
-        public List<TextEffect_Trigger> effects = new List<TextEffect_Trigger>();
+        public List<TextEffectInstance> effects = new List<TextEffectInstance>();
 
         private void OnValidate()
         {
@@ -23,7 +23,7 @@ namespace EasyTextEffects.Effects
         {
             if (!CheckCanApplyEffect(_charIndex)) return;
             
-            foreach (TextEffect_Trigger effect in effects)
+            foreach (TextEffectInstance effect in effects)
             {
                 if (!effect) continue;
                 effect.ApplyEffect(_textInfo, _charIndex, _startVertex, _endVertex);
@@ -34,7 +34,7 @@ namespace EasyTextEffects.Effects
         {
             base.StartEffect();
             
-            foreach (TextEffect_Trigger effect in effects)
+            foreach (TextEffectInstance effect in effects)
             {
                 if (!effect) continue;
                 effect.startCharIndex = startCharIndex;
@@ -47,18 +47,18 @@ namespace EasyTextEffects.Effects
         {
             base.StopEffect();
             
-            foreach (TextEffect_Trigger effect in effects)
+            foreach (TextEffectInstance effect in effects)
             {
                 if (!effect) continue;
                 effect.StopEffect();
             }
         }
 
-        public override TextEffect_Trigger Instantiate()
+        public override TextEffectInstance Instantiate()
         {
             Effect_Composite instance = Instantiate(this);
-            instance.effects = new List<TextEffect_Trigger>();
-            foreach (TextEffect_Trigger effect in effects)
+            instance.effects = new List<TextEffectInstance>();
+            foreach (TextEffectInstance effect in effects)
             {
                 if (!effect) continue;
                 instance.effects.Add(effect.Instantiate());

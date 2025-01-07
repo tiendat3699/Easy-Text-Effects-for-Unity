@@ -3,8 +3,8 @@ using UnityEngine;
 
 namespace EasyTextEffects.Effects
 {
-    [CreateAssetMenu(fileName = "Scale", menuName = "Easy Text Effects/Scale")]
-    public class Effect_Scale : TextEffect_Trigger
+    [CreateAssetMenu(fileName = "Scale", menuName = "Easy Text Effects/4. Scale", order = 4)]
+    public class Effect_Scale : TextEffectInstance
     {
         [Space(10)]
         [Header("Scale")]

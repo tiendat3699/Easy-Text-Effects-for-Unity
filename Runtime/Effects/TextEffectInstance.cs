@@ -6,7 +6,7 @@ using static EasyTextEffects.Editor.EditorDocumentation.FoldBoxAttribute;
 
 namespace EasyTextEffects.Effects
 {
-    public abstract class TextEffect_Trigger : TextEffect_Base
+    public abstract class TextEffectInstance : TextEffect_Base
     {
         public enum AnimationType
         {
@@ -26,7 +26,7 @@ namespace EasyTextEffects.Effects
                 "Packages/com.qiaozhilei.easy-text-effects/Documentation/Images/loopvspingpong.png, 300",
             },
             new[] { ContentType.Image })]
-        public AnimationType animationType = AnimationType.OneTime;
+        public AnimationType animationType = AnimationType.PingPong;
 
         [ConditionalField(nameof(animationType), false, AnimationType.LoopFixedDuration)]
         public float fixedDuration;
@@ -38,12 +38,12 @@ namespace EasyTextEffects.Effects
         [FoldBox("Timing Explained",
             new[] { "Packages/com.qiaozhilei.easy-text-effects/Documentation/Images/time.png, 300" },
             new[] { ContentType.Image })]
-        public float durationPerChar;
+        public float durationPerChar = 0.5f;
 
         [FoldBox("Timing Explained",
             new[] { "Packages/com.qiaozhilei.easy-text-effects/Documentation/Images/time.png, 300" },
             new[] { ContentType.Image })]
-        public float timeBetweenChars = 0.1f;
+        public float timeBetweenChars = 0.05f;
 
         [FoldBox("No Delay Explained",
             new[]
@@ -144,7 +144,7 @@ namespace EasyTextEffects.Effects
             return time - charStartTime;
         }
 
-        public virtual TextEffect_Trigger Instantiate()
+        public virtual TextEffectInstance Instantiate()
         {
             return Instantiate(this);
         }

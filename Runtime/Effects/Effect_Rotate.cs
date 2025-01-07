@@ -3,8 +3,8 @@ using UnityEngine;
 
 namespace EasyTextEffects.Effects
 {
-    [CreateAssetMenu(fileName = "Rotate", menuName = "Easy Text Effects/Rotate")]
-    public class Effect_Rotate : TextEffect_Trigger
+    [CreateAssetMenu(fileName = "Rotate", menuName = "Easy Text Effects/3. Rotate", order = 3)]
+    public class Effect_Rotate : TextEffectInstance
     {
         [Space(10)]
         [Header("Rotate")]

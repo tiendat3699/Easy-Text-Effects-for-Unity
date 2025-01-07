@@ -5,13 +5,13 @@ using UnityEngine;
 
 namespace EasyTextEffects.Effects
 {
-    [CreateAssetMenu(fileName = "PerVertex", menuName = "Easy Text Effects/Per Vertex")]
-    public class Effect_PerVertex : TextEffect_Trigger
+    [CreateAssetMenu(fileName = "PerVertex", menuName = "Easy Text Effects/5. Per Vertex", order = 5)]
+    public class Effect_PerVertex : TextEffectInstance
     {
-        [Space(10)] public List<TextEffect_Trigger> topLeftEffects = new List<TextEffect_Trigger>();
-        [Space(10)] public List<TextEffect_Trigger> topRightEffects = new List<TextEffect_Trigger>();
-        [Space(10)] public List<TextEffect_Trigger> bottomLeftEffects = new List<TextEffect_Trigger>();
-        [Space(10)] public List<TextEffect_Trigger> bottomRightEffects = new List<TextEffect_Trigger>();
+        [Space(10)] public List<TextEffectInstance> topLeftEffects = new List<TextEffectInstance>();
+        [Space(10)] public List<TextEffectInstance> topRightEffects = new List<TextEffectInstance>();
+        [Space(10)] public List<TextEffectInstance> bottomLeftEffects = new List<TextEffectInstance>();
+        [Space(10)] public List<TextEffectInstance> bottomRightEffects = new List<TextEffectInstance>();
 
         private void OnValidate()
         {
@@ -54,7 +54,7 @@ namespace EasyTextEffects.Effects
         public override void StartEffect()
         {
             base.StartEffect();
-            var allEffects = new List<List<TextEffect_Trigger>> 
+            var allEffects = new List<List<TextEffectInstance>> 
             {
                 topLeftEffects,
                 topRightEffects,
@@ -64,7 +64,7 @@ namespace EasyTextEffects.Effects
 
             foreach (var effects in allEffects)
             {
-                foreach (TextEffect_Trigger effect in effects)
+                foreach (TextEffectInstance effect in effects)
                 {
                     if (!effect) continue;
                     effect.startCharIndex = startCharIndex;
@@ -85,7 +85,7 @@ namespace EasyTextEffects.Effects
             bottomRightEffects.ForEach(_effect => _effect?.StopEffect());
         }
 
-        public override TextEffect_Trigger Instantiate()
+        public override TextEffectInstance Instantiate()
         {
             Effect_PerVertex instance = Instantiate(this);
             instance.topLeftEffects = topLeftEffects.Select(_effect => _effect?.Instantiate()).ToList();

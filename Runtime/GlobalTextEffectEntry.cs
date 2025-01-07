@@ -12,7 +12,7 @@ namespace EasyTextEffects
         }
 
         public TriggerWhen triggerWhen;
-        public TextEffect_Trigger effect;
+        public TextEffectInstance effect;
     }
 
     [System.Serializable]
