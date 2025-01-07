@@ -16,7 +16,7 @@
   - [x] Remove persistent
   - [x] Organize effects in demo 
 - [x] Tag Effects Preset
-- [ ] Test importing from github url
+- [x] Test importing from github url
 - [ ] Test other versions of Unity
 - [ ] Promo video
 
