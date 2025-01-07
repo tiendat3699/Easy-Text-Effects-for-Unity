@@ -27,7 +27,14 @@ namespace EasyTextEffects.Effects
 
         [Space(10)]
         [Header("Color")]
-        [FoldBox("Color", new[] { "Hi", "Hello" }, new[] { ContentType.Text, ContentType.Text })]
+        [FoldBox("Color", new[]
+        {
+            "Gradient: Applies a gradient horizontally across the text.",
+            "Between Two Colors: Animates between two colors.",
+            "Only Alpha: Animates only the alpha (transparency) of the text.",
+            "Color To Original: Animates from a start color to the original color of the text.",
+            "Original To Color: Animates from the original color of the text to an end color.",
+        }, new[] { ContentType.Text })]
         public ColorType colorType;
 
         [ConditionalField(nameof(colorType), false, ColorType.BetweenTwoColors, ColorType.ColorToOriginal)]
@@ -51,8 +58,7 @@ namespace EasyTextEffects.Effects
         [ConditionalField(nameof(colorType), false, ColorType.OnlyAlpha)] [Range(0, 1)]
         public float startAlpha = 0;
 
-        [ConditionalField(nameof(colorType), false, ColorType.OnlyAlpha)]
-        [Range(0, 1)]
+        [ConditionalField(nameof(colorType), false, ColorType.OnlyAlpha)] [Range(0, 1)]
         public float endAlpha = 1;
 
         public override void ApplyEffect(TMP_TextInfo _textInfo, int _charIndex, int _startVertex = 0,

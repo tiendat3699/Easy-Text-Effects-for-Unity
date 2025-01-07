@@ -20,8 +20,8 @@ https://github.com/LeiQiaoZhi/Easy-Text-Effect.git
 
 <img src="Images/package.png" width="30%">
 
-
 <br>
+
 > If you are new to this package, I highly recommend you to import the samples in the "**Samples**" tab in the details panel of this package in the package manager. There is a demo scene and some ready-to-use effects. See [Samples](Samples.md) for more information.
 
 
@@ -165,6 +165,10 @@ Effects are ScriptableObjects that can be created in the project view. Right-cli
 
 <img src="Images/create.png" width="60%">
 
+<br/>
+
+> To use ready-to-use effects, see the [Samples](Samples.md) page.
+
 ### Applying Effects
 
 There are 2 effect lists:
@@ -177,8 +181,6 @@ There are 2 effect lists:
 
 **Tag effects** are applied by adding a rich text tag to the text. The format is `<link=effectName>text</link>`. The `effectName` should match the `Effect Name` of the effect.
 - When adding multiple tag effects, the format is `<link=effectName1+effectName2>text</link>`. Don't include "+" in effect names for this reason.
-
-TODO: image
 
 > Using `link` is a workaround to make the tag work without writing a custom tag parser. 
 

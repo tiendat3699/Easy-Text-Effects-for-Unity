@@ -40,6 +40,26 @@ namespace EasyTextEffects.Editor.EditorDocumentation
                 _ => "d__Help"
             };
         }
+        
+        public static GUIStyle HeadingStyle()
+        {
+            return new GUIStyle(EditorStyles.label)
+            {
+                fontStyle = FontStyle.Bold,
+                fontSize = 12,
+                alignment = TextAnchor.MiddleLeft
+            };
+        }
+        
+        public static GUIStyle TitleStyle()
+        {
+            return new GUIStyle(EditorStyles.label)
+            {
+                fontStyle = FontStyle.BoldAndItalic,
+                fontSize = 12,
+                alignment = TextAnchor.MiddleLeft
+            };
+        }
 
         public static void BeginFoldBox(string _title, ref bool _foldoutState, IconType _icon = IconType.Help)
         {
@@ -53,13 +73,7 @@ namespace EasyTextEffects.Editor.EditorDocumentation
             GUIContent icon = EditorGUIUtility.IconContent(GetIconName(_icon));
             GUILayout.Label(icon, GUILayout.Width(16), GUILayout.Height(16));
 
-            var titleStyle = new GUIStyle(EditorStyles.label)
-            {
-                fontStyle = FontStyle.BoldAndItalic,
-                fontSize = 12,
-                alignment = TextAnchor.MiddleLeft
-            };
-            GUILayout.Label(_title, titleStyle);
+            GUILayout.Label(_title, TitleStyle());
 
             // Right-aligned label for "(Click to expand)"
             GUILayout.FlexibleSpace();

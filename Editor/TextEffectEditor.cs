@@ -1,5 +1,6 @@
 using UnityEditor;
 using UnityEngine;
+using static EasyTextEffects.Editor.EditorDocumentation.EditorDocumentation;
 
 namespace EasyTextEffects.Editor
 {
@@ -10,6 +11,9 @@ namespace EasyTextEffects.Editor
         private string manualTagEffectName_;
         private bool debugButtonsVisible_;
         private bool documentationVisible_;
+        private bool createEffectVisible_;
+        private bool applyEffectVisible_;
+        private bool controlEffectVisible_;
 
         public override void OnInspectorGUI()
         {
@@ -30,7 +34,7 @@ namespace EasyTextEffects.Editor
                 myScript.UpdateStyleInfos();
             }
 
-            EditorDocumentation.EditorDocumentation.BeginFoldBox("Debug Buttons", ref debugButtonsVisible_, EditorDocumentation.EditorDocumentation.IconType.Tool);
+            BeginFoldBox("Debug Buttons", ref debugButtonsVisible_, IconType.Tool);
             if (debugButtonsVisible_)
             {
                 GUILayout.BeginHorizontal();
@@ -39,18 +43,20 @@ namespace EasyTextEffects.Editor
                 {
                     myScript.StartManualEffect(manualTagEffectName_);
                 }
+
                 GUILayout.EndHorizontal();
-            
+
                 GUILayout.BeginHorizontal();
                 manualEffectName_ = EditorGUILayout.TextField("Manual Global Effect Name", manualEffectName_);
                 if (GUILayout.Button("START"))
                 {
                     myScript.StartManualTagEffect(manualEffectName_);
                 }
+
                 GUILayout.EndHorizontal();
 
                 GUILayout.Space(10);
-            
+
                 GUILayout.BeginHorizontal();
                 if (GUILayout.Button("START Tag Manual Effects", buttonStyle))
                 {
@@ -61,6 +67,7 @@ namespace EasyTextEffects.Editor
                 {
                     myScript.StopManualTagEffects();
                 }
+
                 GUILayout.EndHorizontal();
 
                 GUILayout.BeginHorizontal();
@@ -73,16 +80,79 @@ namespace EasyTextEffects.Editor
                 {
                     myScript.StopManualEffects();
                 }
+
                 GUILayout.EndHorizontal();
             }
-            EditorDocumentation.EditorDocumentation.EndFoldBox();
 
-            EditorDocumentation.EditorDocumentation.BeginFoldBox("Documentation", ref documentationVisible_);
-            
-            // TODO: Add documentation
-            
-            EditorDocumentation.EditorDocumentation.EndFoldBox();
+            EndFoldBox();
 
+            BeginFoldBox("Creating Effects", ref createEffectVisible_);
+            if (createEffectVisible_)
+            {
+                EditorGUILayout.BeginHorizontal();
+                FileLink(
+                    "Packages/com.qiaozhilei.easy-text-effects/Documentation/Documentation.md");
+                UrlLink(
+                    "https://github.com/LeiQiaoZhi/Easy-Text-Effect-for-Unity/blob/main/Documentation/Documentation.md#creating-effects");
+                EditorGUILayout.EndHorizontal();
+
+                EditorGUILayout.LabelField(
+                    @"Effects are ScriptableObjects that can be created in the project view. Right-click and select `Create/Easy Text Effect/[Text Effect Type]`. Since effects are assets, they can be shared between multiple `TextEffect` components, and changes to the effect will be reflected in all components.",
+                    EditorStyles.wordWrappedLabel
+                );
+            }
+
+            EndFoldBox();
+
+            BeginFoldBox("Applying Effects", ref applyEffectVisible_);
+            if (applyEffectVisible_)
+            {
+                EditorGUILayout.BeginHorizontal();
+                FileLink(
+                    "Packages/com.qiaozhilei.easy-text-effects/Documentation/Documentation.md");
+                UrlLink(
+                    "https://github.com/LeiQiaoZhi/Easy-Text-Effect-for-Unity/blob/main/Documentation/Documentation.md#applying-effects");
+                EditorGUILayout.EndHorizontal();
+
+                EditorGUILayout.LabelField(
+                    @"There are 2 effect lists:
+1. Tag Effects: Effects that are applied to the text based on rich text tags.
+2. Global Effects: Effects that are applied to every character in the text.
+
+Global effects are very easy to apply, just add an element to the list and drag the effect to the Effect field.
+- The option overrideTagEffects determines whether a global effect override tag effects or not.
+
+Tag effects are applied by adding a rich text tag to the text. The format is <link=effectName>text</link>. The effectName should match the Effect Name of the effect.
+- When adding multiple tag effects, the format is <link=effectName1+effectName2>text</link>. Don't include ""+"" in effect names for this reason.",
+                    EditorStyles.wordWrappedLabel
+                );
+            }
+            EndFoldBox();
+            
+            BeginFoldBox("Controlling Effects", ref controlEffectVisible_);
+            if (controlEffectVisible_)
+            {
+                EditorGUILayout.BeginHorizontal();
+                FileLink(
+                    "Packages/com.qiaozhilei.easy-text-effects/Documentation/Documentation.md");
+                UrlLink(
+                    "https://github.com/LeiQiaoZhi/Easy-Text-Effect-for-Unity/blob/main/Documentation/Documentation.md#controlling-effects");
+                EditorGUILayout.EndHorizontal();
+
+                EditorGUILayout.LabelField(
+                    @"Every element of an effect list has a `Trigger When` field, which determines when the effect is triggered. 
+- `On Start`: The effect will start when the text is enabled.
+- `Manual`: The effect will start only when a script tells it to.
+   - `StartAllManualEffects()`: start all manual effects in the global list.
+   - `StartManualEffects(string effectName)`: start the manual effect with the given name in the global list.
+   - `StartManualTagEffects()`: start all manual effects in the tag list.
+   - `StartManualTagEffects(string effectName)`: start the manual effect with the given name in the tag list.
+
+There are some debug buttons to help you test manual effects in the editor.",
+                    EditorStyles.wordWrappedLabel
+                );
+            }
+            EndFoldBox();
         }
 
         private void DrawFoldoutHeader(string title, ref bool foldoutState)

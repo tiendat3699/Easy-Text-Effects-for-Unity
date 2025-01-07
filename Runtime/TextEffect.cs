@@ -148,15 +148,6 @@ namespace EasyTextEffects
 #endif
         }
 
-        private void Start()
-        {
-            if (text == null)
-                return;
-            // Debug.Log("TextEffect started");
-            // text.ForceMeshUpdate();
-            // UpdateStyleInfos();
-        }
-
         private float nextUpdateTime_ = 0;
 
         public void Update()
