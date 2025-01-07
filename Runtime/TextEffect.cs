@@ -119,13 +119,18 @@ namespace EasyTextEffects
             return results;
         }
 
-        private void OnValidate()
+        public void Refresh()
         {
-#if UNITY_EDITOR
             if (text == null)
                 return;
             text.ForceMeshUpdate();
             UpdateStyleInfos();
+        }
+
+        private void OnValidate()
+        {
+#if UNITY_EDITOR
+            Refresh();
 #endif
         }
 
@@ -134,11 +139,7 @@ namespace EasyTextEffects
 #if UNITY_EDITOR
             EditorApplication.update += Update;
 #endif
-            if (text == null)
-                return;
-            // Debug.Log("TextEffect enabled");
-            text.ForceMeshUpdate();
-            UpdateStyleInfos();
+            Refresh();
         }
 
         private void OnDisable()
