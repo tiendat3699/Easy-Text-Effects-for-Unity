@@ -145,6 +145,11 @@ namespace EasyTextEffects
             UpdateStyleInfos();
         }
 
+        private void Reset()
+        {
+            text = GetComponent<TMP_Text>();
+        }
+
         private void OnValidate()
         {
 #if UNITY_EDITOR
