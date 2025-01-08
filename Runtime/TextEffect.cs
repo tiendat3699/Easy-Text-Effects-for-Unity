@@ -43,9 +43,21 @@ namespace EasyTextEffects
 
             var styles = textInfo.linkInfo;
 
-            // copy global effects
+            CopyGlobalEffects(textInfo);
+            AddTagEffects(styles);
+
+            StartOnStartEffects();
+        }
+        private void CopyGlobalEffects(TMP_TextInfo textInfo)
+        {
             onStartEffects_ = new List<GlobalTextEffectEntry>();
             manualEffects_ = new List<GlobalTextEffectEntry>();
+
+            if (globalEffects == null)
+            {
+                return;
+            }
+
             globalEffects.ForEach(_entry =>
             {
                 if (_entry.effect == null)
@@ -60,14 +72,22 @@ namespace EasyTextEffects
                 else
                     manualEffects_.Add(effectEntry);
             });
+        }
+        private void AddTagEffects(TMP_LinkInfo[] styles)
+        {
+            onStartTagEffects_ = new List<TextEffectEntry>();
+            manualTagEffects_ = new List<TextEffectEntry>();
 
-            // add effects to list
+            if (tagEffects == null)
+            {
+                return;
+            }
+
             allTagEffects_ = new List<TextEffectEntry>(tagEffects);
             if (usePreset && preset != null)
                 allTagEffects_.AddRange(preset.tagEffects);
+
             
-            onStartTagEffects_ = new List<TextEffectEntry>();
-            manualTagEffects_ = new List<TextEffectEntry>();
             for (var i = 0; i < styles.Length; i++)
             {
                 TMP_LinkInfo style = styles[i];
@@ -90,10 +110,8 @@ namespace EasyTextEffects
                         manualTagEffects_.Add(entryCopy);
                 }
             }
-
-            StartOnStartEffects();
         }
-
+       
         private List<TextEffectEntry> GetTagEffectsByName(string _effectName)
         {
             var results = new List<TextEffectEntry>();
@@ -125,6 +143,11 @@ namespace EasyTextEffects
                 return;
             text.ForceMeshUpdate();
             UpdateStyleInfos();
+        }
+
+        private void Reset()
+        {
+            text = GetComponent<TMP_Text>();
         }
 
         private void OnValidate()
