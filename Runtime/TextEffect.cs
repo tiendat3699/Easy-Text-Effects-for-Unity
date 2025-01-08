@@ -43,7 +43,13 @@ namespace EasyTextEffects
 
             var styles = textInfo.linkInfo;
 
-            // copy global effects
+            CopyGlobalEffects(textInfo);
+            AddTagEffects(styles);
+
+            StartOnStartEffects();
+        }
+        private void CopyGlobalEffects(TMP_TextInfo textInfo)
+        {
             onStartEffects_ = new List<GlobalTextEffectEntry>();
             manualEffects_ = new List<GlobalTextEffectEntry>();
             globalEffects.ForEach(_entry =>
@@ -60,12 +66,13 @@ namespace EasyTextEffects
                 else
                     manualEffects_.Add(effectEntry);
             });
-
-            // add effects to list
+        }
+        private void AddTagEffects(TMP_LinkInfo[] styles)
+        {
             allTagEffects_ = new List<TextEffectEntry>(tagEffects);
             if (usePreset && preset != null)
                 allTagEffects_.AddRange(preset.tagEffects);
-            
+
             onStartTagEffects_ = new List<TextEffectEntry>();
             manualTagEffects_ = new List<TextEffectEntry>();
             for (var i = 0; i < styles.Length; i++)
@@ -90,10 +97,8 @@ namespace EasyTextEffects
                         manualTagEffects_.Add(entryCopy);
                 }
             }
-
-            StartOnStartEffects();
         }
-
+       
         private List<TextEffectEntry> GetTagEffectsByName(string _effectName)
         {
             var results = new List<TextEffectEntry>();
