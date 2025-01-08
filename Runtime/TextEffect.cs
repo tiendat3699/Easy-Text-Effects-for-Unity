@@ -52,6 +52,12 @@ namespace EasyTextEffects
         {
             onStartEffects_ = new List<GlobalTextEffectEntry>();
             manualEffects_ = new List<GlobalTextEffectEntry>();
+
+            if (globalEffects == null)
+            {
+                return;
+            }
+
             globalEffects.ForEach(_entry =>
             {
                 if (_entry.effect == null)
@@ -69,12 +75,19 @@ namespace EasyTextEffects
         }
         private void AddTagEffects(TMP_LinkInfo[] styles)
         {
+            onStartTagEffects_ = new List<TextEffectEntry>();
+            manualTagEffects_ = new List<TextEffectEntry>();
+
+            if (tagEffects == null)
+            {
+                return;
+            }
+
             allTagEffects_ = new List<TextEffectEntry>(tagEffects);
             if (usePreset && preset != null)
                 allTagEffects_.AddRange(preset.tagEffects);
 
-            onStartTagEffects_ = new List<TextEffectEntry>();
-            manualTagEffects_ = new List<TextEffectEntry>();
+            
             for (var i = 0; i < styles.Length; i++)
             {
                 TMP_LinkInfo style = styles[i];
