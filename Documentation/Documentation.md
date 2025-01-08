@@ -8,7 +8,7 @@ Table of Contents
 
 ## 📦 Installation
 
-Easiest way is to [install Easy Text Effects as a package](https://docs.unity3d.com/Manual/upm-ui-giturl.html).
+The easiest way is to [install Easy Text Effects as a package](https://docs.unity3d.com/Manual/upm-ui-giturl.html).
 
 1. Open **Window/Package Manager** in Unity.
 2. Click on the **+** button in the top left corner.
@@ -24,12 +24,12 @@ https://github.com/LeiQiaoZhi/Easy-Text-Effect.git
 
 > If you are new to this package, I highly recommend you to import the samples in the "**Samples**" tab in the details panel of this package in the package manager. There is a demo scene and some ready-to-use effects. See [Samples](Samples.md) for more information.
 
+This package is also on OpenUPM: [![openupm](https://img.shields.io/npm/v/com.qiaozhilei.easy-text-effects?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.qiaozhilei.easy-text-effects/).
+
 
 ### Dependencies
 
 This package only works with **TextMeshPro**. 
-
-**MyBox** is used for some inspector utilities. It should automatically be installed when you install this package. If not, you can install it from [github url](https://github.com/Deadcows/MyBox.git).
 
 ## 🚀 Quick Start
 
