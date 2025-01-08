@@ -1,4 +1,4 @@
-#if UNITY_EDITOR
+#if UNITY_2022_3_OR_NEWER
 using UnityEditor;
 using UnityEngine;
 
@@ -32,6 +32,7 @@ namespace EasyTextEffects.Editor.EditorDocumentation
                 {
                     DrawContents(foldBoxAttribute);
                 }
+
                 EditorDocumentation.EndFoldBox();
             }
         }

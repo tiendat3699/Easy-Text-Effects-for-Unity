@@ -163,7 +163,6 @@ namespace EasyTextEffects.Editor.EditorDocumentation
                 EditorGUI.PropertyField(_position, _property, _label, true);
                 return;
             }
-            EditorGUILayout.BeginHorizontal();
             GUIContent icon = EditorGUIUtility.IconContent(GetIconName(IconType.Help));
             
             var iconDimension = EditorGUIUtility.singleLineHeight;
@@ -183,7 +182,6 @@ namespace EasyTextEffects.Editor.EditorDocumentation
             var propertyWidth = _position.width - iconDimension; // Adjust width after foldout
             var propertyRect = new Rect(_position.x + iconDimension, _position.y, propertyWidth, _position.height);
             EditorGUI.PropertyField(propertyRect, _property, _label, true);
-            EditorGUILayout.EndHorizontal();
         }
     }
 }
