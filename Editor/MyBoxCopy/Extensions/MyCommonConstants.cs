@@ -1,4 +1,4 @@
-﻿namespace EasyTextEffects.Editor.MyBoxCopy.Extensions
+namespace EasyTextEffects.Editor.MyBoxCopy.Extensions
 {
 	public static class MyCommonConstants
 	{
