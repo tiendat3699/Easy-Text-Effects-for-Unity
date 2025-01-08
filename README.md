@@ -3,7 +3,7 @@
     Easy Text Effects for Unity
 </h1>
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](LICENSE) [![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-%23FFDD00.svg?logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/qiaozhilei)
+[![openupm](https://img.shields.io/npm/v/com.qiaozhilei.easy-text-effects?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.qiaozhilei.easy-text-effects/) [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](LICENSE) [![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-%23FFDD00.svg?logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/qiaozhilei)
 
 > **Easily animate TextMeshPro text with stunning, customizable effects!**
 
