@@ -115,7 +115,7 @@ namespace EasyTextEffects
         private List<TextEffectEntry> GetTagEffectsByName(string _effectName)
         {
             var results = new List<TextEffectEntry>();
-            var effectNames = _effectName.Split("+");
+            var effectNames = _effectName.Split('+');
 
             foreach (var effectName in effectNames)
             {

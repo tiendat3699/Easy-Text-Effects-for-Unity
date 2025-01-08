@@ -48,7 +48,7 @@ namespace EasyTextEffects.Editor.EditorDocumentation
                 }
                 else
                 {
-                    var param = _attribute.Content[i].Split(",");
+                    var param = _attribute.Content[i].Split(',');
                     var image = AssetDatabase.LoadAssetAtPath<Texture2D>(param[0]);
                     if (image != null)
                     {
