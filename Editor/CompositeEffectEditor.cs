@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using EasyTextEffects.Effects;
 using UnityEditor;
 
@@ -41,3 +42,4 @@ This can be useful if there is a common set of effects that you want to apply to
         }
     }
 }
+#endif

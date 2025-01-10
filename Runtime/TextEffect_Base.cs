@@ -29,11 +29,5 @@ namespace EasyTextEffects
             Vector3 center = (_verts[charBegin] + _verts[charEnd]) / 2;
             return center;
         }
-
-        // [ButtonMethod(ButtonMethodDrawOrder.BeforeInspector)] 
-        public void ToggleDocumentation()
-        {
-            EditorDocumentation.show = !EditorDocumentation.show;
-        }
     }
 }

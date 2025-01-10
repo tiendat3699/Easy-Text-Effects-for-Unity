@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using EasyTextEffects.Effects;
 using UnityEditor;
 
@@ -42,3 +43,5 @@ A simple example: you could let the top vertices move up and down while keeping 
         }
     }
 }
+
+#endif

@@ -7,7 +7,9 @@ namespace EasyTextEffects
 {
     public static class TimeUtil
     {
+#if UNITY_EDITOR
         private static float _editorStartTime = -1;
+#endif
 
         public static float GetTime()
         {

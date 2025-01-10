@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEngine;
 using static EasyTextEffects.Editor.EditorDocumentation.EditorDocumentation;
@@ -187,3 +188,4 @@ There are some debug buttons to help you test manual effects in the editor.",
         }
     }
 }
+#endif

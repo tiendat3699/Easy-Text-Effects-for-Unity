@@ -1,4 +1,3 @@
-#if UNITY_EDITOR
 using UnityEngine;
 
 namespace EasyTextEffects.Editor.EditorDocumentation
@@ -10,4 +9,3 @@ namespace EasyTextEffects.Editor.EditorDocumentation
         }
     }
 }
-#endif
