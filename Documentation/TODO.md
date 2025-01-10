@@ -17,12 +17,18 @@
   - [x] Organize effects in demo 
 - [x] Tag Effects Preset
 - [x] Test importing from github url
-- [ ] Test other versions of Unity
-- [ ] Promo video
+- [x] Test other versions of Unity
+- [x] Promo video
 
 ## COULD
 
 - [x] Per vertex settings
 - [ ] Unity Asset Store
 - [ ] Option to turn off edit mode effects
-- [ ] Sponsor
+- [x] Sponsor
+- [ ] Tutorials
+  - [ ] Simple typewriter effect
+  - [ ] Fancy typewriter effect
+  - [ ] Make text go in a circle
+- [ ] Static Option
+- [ ] Sin and Cos wave for easing curve
