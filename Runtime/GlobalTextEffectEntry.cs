@@ -1,5 +1,8 @@
 using EasyTextEffects.Effects;
 
+using UnityEngine;
+using UnityEngine.Events;
+
 namespace EasyTextEffects
 {
     [System.Serializable]
@@ -13,6 +16,18 @@ namespace EasyTextEffects
 
         public TriggerWhen triggerWhen;
         public TextEffectInstance effect;
+
+        public UnityEvent onEffectCompleted = new UnityEvent();
+
+        public void StartEffect()
+        {
+            effect.StartEffect(this);
+        }
+
+        internal void InvokeCompleted()
+        {
+            onEffectCompleted?.Invoke();
+        }
     }
 
     [System.Serializable]
