@@ -45,7 +45,7 @@ namespace EasyTextEffects.Editor
                 manualTagEffectName_ = EditorGUILayout.TextField("Manual Tag Effect Name", manualTagEffectName_);
                 if (GUILayout.Button("START"))
                 {
-                    myScript.StartManualEffect(manualTagEffectName_);
+                    myScript.StartManualTagEffect(manualTagEffectName_);
                 }
 
                 GUILayout.EndHorizontal();
@@ -54,7 +54,7 @@ namespace EasyTextEffects.Editor
                 manualEffectName_ = EditorGUILayout.TextField("Manual Global Effect Name", manualEffectName_);
                 if (GUILayout.Button("START"))
                 {
-                    myScript.StartManualTagEffect(manualEffectName_);
+                    myScript.StartManualEffect(manualEffectName_);
                 }
 
                 GUILayout.EndHorizontal();
