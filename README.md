@@ -50,6 +50,18 @@ Unleash your creativity with:
 - [**Per-Vertex Effects**](Documentation/Documentation.md#per-vertex): Animate individual letters for dynamic text effects.
 - [**Combine Effects**](Documentation/Documentation.md#composite): Create complex animations with composite effects.
 
+## ❔ How to ...
+
+- **Typewriter Effect?** Absolutely! See [Tutorial: Typewriter Effect](Documentation/Tutorials/Typewriter.md).
+- **Chain animations?** Absolutely! See [Tutorial: Chaining Animations](Documentation/Tutorials/Chain%20Animations.md).
+- If you are still unsure after reading the documentation, feel free to ask anywhere (dm, email, issue, etc.).
+
+| Typewriter Effect | Chain Animations |
+|----------------------------------------------|------------------------------------------|
+| ![Typewriter](Documentation/Images/typewriter.gif) | ![Chain](Documentation/Images/entrydelayexit.gif) | 
+
+
+
 ## 🤝 Contributing
 
 Found a bug or have a feature request? Open an issue or submit a pull request! Contributions are welcome.
