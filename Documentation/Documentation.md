@@ -209,6 +209,30 @@ There are some debug buttons to help you test manual effects in the editor:
 
 > If you have added/changed the effects during runtime and your text isn’t behaving correctly, you may want to call `textEffectScript.Refresh()`​ before calling the start effects methods. 
 
+#### Query Effect Statuses
+
+An effect status consists of `Tag`, `Started`, `IsCompleted`.
+- note that `IsCompleted` is only true for `One Time` and `Loop Fixed Duration` animations. 
+- special cases: `IsCompleted` becomes true once any child effect in composite or per-vertex effects is completed. 
+
+You can see the statuses of all the effects in the inspector in real time!
+
+<img src="Images/status.png" width="50%" alt="">
+
+If you want to know the status of the effects in code, you can use the following methods:
+- `List<TextEffectStatus> QueryEffectStatuses(TextEffectType _effectType,
+            TextEffectEntry.TriggerWhen _triggerWhen)`
+- `List<TextEffectStatus> QueryEffectStatusesByTag(TextEffectType _effectType,
+            TextEffectEntry.TriggerWhen _triggerWhen, string _tag)`
+
+#### On Effect Completed Event
+
+There is a `On Effect Completed` event for each effect in the effect list. This event will be triggered when the effect is completed, but note that this only works for `One Time` and `Loop Fixed Duration` animations.
+
+<img src="Images/entryexit.png" width="400">
+
+For a detailed tutorial, see [Chain Animations](Tutorials/Chain%20Animations.md).
+
 ### Creating Your Own Effects
 
 The easiest way to create your own effects is to create a new class that inherits from `TextEffect_Trigger` and override the `ApplyEffect` method.
