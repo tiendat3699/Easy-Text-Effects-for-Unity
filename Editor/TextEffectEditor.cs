@@ -1,4 +1,6 @@
 #if UNITY_EDITOR
+using System;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using static EasyTextEffects.Editor.EditorDocumentation.EditorDocumentation;
@@ -10,15 +12,25 @@ namespace EasyTextEffects.Editor
     {
         private string manualEffectName_;
         private string manualTagEffectName_;
+
         private bool debugButtonsVisible_;
+
+        private bool effectStatusesVisible_;
+        private bool tagStartEffectStatusesVisible_ = true;
+        private bool tagManualEffectStatusesVisible_ = true;
+        private bool globalStartEffectStatusesVisible_ = true;
+        private bool globalManualEffectStatusesVisible_ = true;
+
         private bool documentationVisible_;
         private bool createEffectVisible_;
         private bool applyEffectVisible_;
         private bool controlEffectVisible_;
-
+        
         public override void OnInspectorGUI()
         {
             DrawDefaultInspector();
+            
+            Repaint();
 
             var myScript = (TextEffect)target;
 
@@ -86,6 +98,61 @@ namespace EasyTextEffects.Editor
                 }
 
                 GUILayout.EndHorizontal();
+            }
+
+            EndFoldBox();
+
+            BeginFoldBox("Effect Statuses", ref effectStatusesVisible_, IconType.Tool);
+            if (effectStatusesVisible_)
+            {
+                var foldoutHeaderStyle = new GUIStyle(EditorStyles.foldout)
+                {
+                    fontStyle = FontStyle.Bold
+                };
+                EditorGUI.indentLevel++; // Increase indent level
+                tagStartEffectStatusesVisible_ =
+                    EditorGUILayout.Foldout(tagStartEffectStatusesVisible_, "Tag OnStart Effects", true,
+                        foldoutHeaderStyle);
+                if (tagStartEffectStatusesVisible_)
+                {
+                    var statuses =
+                        myScript.QueryEffectStatuses(TextEffectType.Tag, TextEffectEntry.TriggerWhen.OnStart);
+                    DrawStatuses(statuses);
+                }
+                EditorGUILayout.Space(2);
+
+                tagManualEffectStatusesVisible_ =
+                    EditorGUILayout.Foldout(tagManualEffectStatusesVisible_, "Tag Manual Effects", true,
+                        foldoutHeaderStyle);
+                if (tagManualEffectStatusesVisible_)
+                {
+                    var statuses = myScript.QueryEffectStatuses(TextEffectType.Tag, TextEffectEntry.TriggerWhen.Manual);
+                    DrawStatuses(statuses);
+                }
+                EditorGUILayout.Space(2);
+
+                globalStartEffectStatusesVisible_ =
+                    EditorGUILayout.Foldout(globalStartEffectStatusesVisible_, "Global OnStart Effects", true,
+                        foldoutHeaderStyle);
+                if (globalStartEffectStatusesVisible_)
+                {
+                    var statuses =
+                        myScript.QueryEffectStatuses(TextEffectType.Global, TextEffectEntry.TriggerWhen.OnStart);
+                    DrawStatuses(statuses);
+                }
+                EditorGUILayout.Space(2);
+
+                globalManualEffectStatusesVisible_ =
+                    EditorGUILayout.Foldout(globalManualEffectStatusesVisible_, "Global Manual Effects", true,
+                        foldoutHeaderStyle);
+                if (globalManualEffectStatusesVisible_)
+                {
+                    var statuses =
+                        myScript.QueryEffectStatuses(TextEffectType.Global, TextEffectEntry.TriggerWhen.Manual);
+                    DrawStatuses(statuses);
+                }
+
+                EditorGUI.indentLevel--;
             }
 
             EndFoldBox();
@@ -161,30 +228,22 @@ There are some debug buttons to help you test manual effects in the editor.",
             EndFoldBox();
         }
 
-        private void DrawFoldoutHeader(string title, ref bool foldoutState)
+        private void DrawStatuses(List<TextEffectStatus> _statuses)
         {
-            // Create a horizontal layout for the foldout header
-            EditorGUILayout.BeginHorizontal("box"); // Box for the header background
-            GUILayout.Label(title, EditorStyles.boldLabel);
-
-            // Right-aligned label for "(Click to expand)"
-            GUILayout.FlexibleSpace();
-            GUIStyle clickToExpandStyle = new GUIStyle(EditorStyles.label)
+            var boldTextStyle = new GUIStyle(GUI.skin.label)
             {
-                fontStyle = FontStyle.Italic,
-                fontSize = 12
+                fontStyle = FontStyle.Bold
             };
-            GUILayout.Label(foldoutState ? "(Click to collapse)" : "(Click to expand)", clickToExpandStyle);
-
-            // Check for mouse click to toggle foldout state
-            Rect headerRect = GUILayoutUtility.GetLastRect();
-            if (Event.current.type == EventType.MouseDown && headerRect.Contains(Event.current.mousePosition))
+            foreach (TextEffectStatus status in _statuses)
             {
-                foldoutState = !foldoutState; // Toggle foldout state
-                Event.current.Use();
+                var started = status.Started ? "Started" : "Not Started";
+                var isComplete = status.IsComplete ? "Complete" : "Not Complete";
+                EditorGUILayout.BeginHorizontal();
+                EditorGUILayout.LabelField(status.Tag, boldTextStyle, GUILayout.Width(100));
+                EditorGUILayout.LabelField(started, GUILayout.Width(100));
+                EditorGUILayout.LabelField(isComplete, GUILayout.Width(100));
+                EditorGUILayout.EndHorizontal();
             }
-
-            EditorGUILayout.EndHorizontal();
         }
     }
 }
