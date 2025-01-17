@@ -54,7 +54,7 @@ namespace EasyTextEffects.Effects
         public override void StartEffect(TextEffectEntry entry)
         {
             base.StartEffect(entry);
-            var allEffects = new List<List<TextEffectInstance>> 
+            var allEffects = new List<List<TextEffectInstance>>
             {
                 topLeftEffects,
                 topRightEffects,
@@ -72,7 +72,16 @@ namespace EasyTextEffects.Effects
                     effect.StartEffect(entry);
                 }
             }
+        }
 
+        public override bool IsComplete
+        {
+            get
+            {
+                var allEffects = topLeftEffects.Concat(topRightEffects).Concat(bottomLeftEffects)
+                    .Concat(bottomRightEffects);
+                return allEffects.Any(_effect => _effect != null && _effect.IsComplete);
+            }
         }
 
         public override void StopEffect()

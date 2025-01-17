@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -7,8 +8,7 @@ namespace EasyTextEffects.Effects
     [CreateAssetMenu(fileName = "Composite", menuName = "Easy Text Effects/6. Composite", order = 6)]
     public class Effect_Composite : TextEffectInstance
     {
-        [Space(10)]
-        public List<TextEffectInstance> effects = new List<TextEffectInstance>();
+        [Space(10)] public List<TextEffectInstance> effects = new List<TextEffectInstance>();
 
         private void OnValidate()
         {
@@ -19,10 +19,11 @@ namespace EasyTextEffects.Effects
             }
         }
 
-        public override void ApplyEffect(TMP_TextInfo _textInfo, int _charIndex, int _startVertex = 0, int _endVertex = 3)
+        public override void ApplyEffect(TMP_TextInfo _textInfo, int _charIndex, int _startVertex = 0,
+            int _endVertex = 3)
         {
             if (!CheckCanApplyEffect(_charIndex)) return;
-            
+
             foreach (TextEffectInstance effect in effects)
             {
                 if (!effect) continue;
@@ -33,12 +34,13 @@ namespace EasyTextEffects.Effects
         public override void StartEffect(TextEffectEntry entry)
         {
             base.StartEffect(entry);
-            
+
             foreach (TextEffectInstance effect in effects)
             {
                 if (!effect) continue;
                 effect.startCharIndex = startCharIndex;
                 effect.charLength = charLength;
+                // side effect: any child effect that finishes will invoke OnEffectComplete
                 effect.StartEffect(entry);
             }
         }
@@ -46,13 +48,15 @@ namespace EasyTextEffects.Effects
         public override void StopEffect()
         {
             base.StopEffect();
-            
+
             foreach (TextEffectInstance effect in effects)
             {
                 if (!effect) continue;
                 effect.StopEffect();
             }
         }
+
+        public override bool IsComplete => effects.Any(_effect => _effect != null && _effect.IsComplete);
 
         public override TextEffectInstance Instantiate()
         {
@@ -63,6 +67,7 @@ namespace EasyTextEffects.Effects
                 if (!effect) continue;
                 instance.effects.Add(effect.Instantiate());
             }
+
             return instance;
         }
     }

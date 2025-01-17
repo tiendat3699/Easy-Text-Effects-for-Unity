@@ -70,7 +70,7 @@ namespace EasyTextEffects.Effects
 
 
         protected float startTime;
-        protected bool started;
+        internal bool started;
         protected bool isComplete;
         private TextEffectEntry currentEntry;
 
@@ -177,7 +177,7 @@ namespace EasyTextEffects.Effects
             return time - charStartTime;
         }
 
-        public bool IsComplete() => isComplete;
+        public virtual bool IsComplete => isComplete;
 
         public virtual TextEffectInstance Instantiate()
         {

@@ -1,16 +1,15 @@
 using System.Collections.Generic;
 using System.Linq;
-
 using EasyTextEffects.Editor.MyBoxCopy.Attributes;
 using EasyTextEffects.Editor.MyBoxCopy.Extensions;
 using EasyTextEffects.Effects;
-
 using TMPro;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 using UnityEngine;
 using UnityEngine.Serialization;
+using static EasyTextEffects.TextEffectEntry.TriggerWhen;
 
 namespace EasyTextEffects
 {
@@ -50,6 +49,7 @@ namespace EasyTextEffects
 
             StartOnStartEffects();
         }
+
         private void CopyGlobalEffects(TMP_TextInfo textInfo)
         {
             onStartEffects_ = new List<GlobalTextEffectEntry>();
@@ -70,12 +70,13 @@ namespace EasyTextEffects
                 effectEntry.effect.charLength = textInfo.characterCount;
                 effectEntry.overrideTagEffects = _entry.overrideTagEffects;
                 effectEntry.onEffectCompleted = _entry.onEffectCompleted;
-                if (_entry.triggerWhen == GlobalTextEffectEntry.TriggerWhen.OnStart)
+                if (_entry.triggerWhen == OnStart)
                     onStartEffects_.Add(effectEntry);
                 else
                     manualEffects_.Add(effectEntry);
             });
         }
+
         private void AddTagEffects(TMP_LinkInfo[] styles)
         {
             onStartTagEffects_ = new List<TextEffectEntry>();
@@ -90,7 +91,7 @@ namespace EasyTextEffects
             if (usePreset && preset != null)
                 allTagEffects_.AddRange(preset.tagEffects);
 
-            
+
             for (var i = 0; i < styles.Length; i++)
             {
                 TMP_LinkInfo style = styles[i];
@@ -107,14 +108,14 @@ namespace EasyTextEffects
                     entryCopy.effect = entry.effect.Instantiate();
                     entryCopy.effect.startCharIndex = style.linkTextfirstCharacterIndex;
                     entryCopy.effect.charLength = style.linkTextLength;
-                    if (entry.triggerWhen == TextEffectEntry.TriggerWhen.OnStart)
+                    if (entry.triggerWhen == OnStart)
                         onStartTagEffects_.Add(entryCopy);
                     else
                         manualTagEffects_.Add(entryCopy);
                 }
             }
         }
-       
+
         private List<TextEffectEntry> GetTagEffectsByName(string _effectName)
         {
             var results = new List<TextEffectEntry>();
@@ -223,6 +224,8 @@ namespace EasyTextEffects
             }
         }
 
+        #region API
+
         public void StartOnStartEffects()
         {
             onStartEffects_.ForEach(_entry => _entry.StartEffect());
@@ -279,6 +282,48 @@ namespace EasyTextEffects
                 Debug.Log($"Available effects: {string.Join(", ", names)}");
             }
         }
+
+        public List<TextEffectStatus> QueryEffectStatuses(TextEffectType _effectType,
+            TextEffectEntry.TriggerWhen _triggerWhen)
+        {
+            IReadOnlyList<TextEffectEntry> effectsList = _effectType == TextEffectType.Global
+                ? _triggerWhen == OnStart
+                    ? onStartEffects_
+                    : manualEffects_
+                : _triggerWhen == OnStart
+                    ? onStartTagEffects_
+                    : manualTagEffects_;
+
+            return effectsList.Select(_entry => new TextEffectStatus
+            {
+                Tag = _entry.effect.effectTag,
+                Started = _entry.effect.started,
+                IsComplete = _entry.effect.IsComplete
+            }).ToList();
+        }
+
+        public List<TextEffectStatus> QueryEffectStatusesByTag(TextEffectType _effectType,
+            TextEffectEntry.TriggerWhen _triggerWhen, string _tag)
+        {
+            IReadOnlyList<TextEffectEntry> effectsList = _effectType == TextEffectType.Global
+                ? _triggerWhen == OnStart
+                    ? onStartEffects_
+                    : manualEffects_
+                : _triggerWhen == OnStart
+                    ? onStartTagEffects_
+                    : manualTagEffects_;
+
+            return effectsList
+                .Where(_entry => _entry.effect.effectTag == _tag)
+                .Select(_entry => new TextEffectStatus
+                {
+                    Tag = _entry.effect.effectTag,
+                    Started = _entry.effect.started,
+                    IsComplete = _entry.effect.IsComplete
+                }).ToList();
+        }
+
+        #endregion
 
 #if UNITY_EDITOR
         private void OnDrawGizmosSelected()
