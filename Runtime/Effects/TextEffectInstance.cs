@@ -84,7 +84,7 @@ namespace EasyTextEffects.Effects
             currentEntry = entry;
 
             started = true;
-            startTime = TimeUtil.GetTime();
+            startTime = TimeUtil.GetUnscaleTime();
             isComplete = false;
 
             if (animationType == AnimationType.OneTime || animationType == AnimationType.LoopFixedDuration)
@@ -142,7 +142,7 @@ namespace EasyTextEffects.Effects
 
         private float GetTimeForChar(int _charIndex)
         {
-            var time = TimeUtil.GetTime();
+            var time = TimeUtil.GetUnscaleTime();
 
             // Check completion for LoopFixedDuration
             if (animationType == AnimationType.LoopFixedDuration && time - startTime > fixedDuration)
