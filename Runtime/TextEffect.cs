@@ -17,6 +17,8 @@ namespace EasyTextEffects
     public class TextEffect : MonoBehaviour
     {
         public TMP_Text text;
+        [Space(5)] public bool ignoreTimeScale;
+
         [Space(5)] public bool usePreset;
 
         [ConditionalField(nameof(usePreset), false)]
@@ -183,7 +185,7 @@ namespace EasyTextEffects
             if (!text)
                 return;
 
-            var time = TimeUtil.GetTime();
+            var time = ignoreTimeScale ? TimeUtil.GetUnscaleTime() : TimeUtil.GetTime();
             if (time < nextUpdateTime_)
                 return;
             nextUpdateTime_ = time + 1f / updatesPerSecond;
